@@ -1,5 +1,5 @@
 # Licence
-This software is released under the MIT License, see LICENSE.
+This software is released under the GNU License, see LICENSE.
 
 # Authors
 [Kohei Nomura] https://github.com/NomuraKohei
