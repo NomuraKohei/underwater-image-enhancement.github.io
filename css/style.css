@@ -16,9 +16,7 @@ margin: auto auto;
 
 /*å©èoÇµ*/
 text-typeB { font-size: 0.8rem}
-text-typeh1{ font-size: 2.0rem;
-margin: 1.0rem 1.0rem;
-}
+
 text-typeh2 { 
 font-size: 1.5rem;
 color="#5f5f5f";
@@ -26,10 +24,16 @@ border-left: solid 0.8rem #c0c0c0;
 padding-left: 0.5rem;
 }
 
+text-typeh1{ font-size: 2.0rem;
+margin: 1.0rem 1.0rem;
+}
 p { font-size: 0.75rem;}
 text-typeA { font-size: 1.0rem}
 text-typeC { font-size: 1.1rem}
 @media screen and (max-width: 800px) {
+text-typeh1{ font-size: 1.0rem;
+margin: 1.0rem 1.0rem;
+}
 p { font-size: 0.45rem;}
 text-typeA { font-size: 0.8rem}
 text-typeC { font-size: 0.6rem}
