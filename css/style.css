@@ -44,7 +44,7 @@ text-typeC { font-size: 0.6rem}
 }
 @media only screen and (max-width: 800px), print {
 .max_img img{
-width:100%;
+width:95%;
 height: auto;
 }
 .half_img img{
