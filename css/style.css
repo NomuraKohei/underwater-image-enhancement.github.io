@@ -12,3 +12,8 @@ color="#5f5f5f";
 border-left: solid 0.8em #E3E4D9;
 padding-left: 0.5em;
 }
+
+#page{
+width: 70%;
+margin: 0 auto;
+}
