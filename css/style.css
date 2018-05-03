@@ -46,7 +46,7 @@ p { font-size: 0.45rem;}
 text-typeA { font-size: 0.8rem}
 text-typeC { font-size: 0.6rem}
 }
-@media only screen and (max-width: 800px), print {
+@media only screen and (max-width: 960px), print {
 .max_img img{
 width:95%;
 height: auto;
