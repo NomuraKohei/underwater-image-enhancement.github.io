@@ -6,18 +6,10 @@ width:70%;
 margin: auto auto;
 }
 
-@media screen and (max-width: 900px) {
-#page{
-font-size: 12ptx;
-width: 80%;
-margin: auto auto;
-}
-}
-
 @media screen and (max-width: 751px) {
 #page{
 font-size: 4ptx;
-width: 700px;
+width: 80%;
 margin: auto auto;
 }
 }
