@@ -31,7 +31,7 @@ margin: auto auto;
 }
 }
 @media screen and (max-width: 800px) {
-text-typeh1{ font-size: 1.0rem;
+text-typeh1{ font-size: 0.8rem;
 margin: 1.0rem 1.0rem;
 }
 p { font-size: 0.45rem;}
