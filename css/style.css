@@ -32,6 +32,12 @@ margin: auto auto;
 @media screen and (max-width: 800px) {
 text-typeh1{ font-size: 1.1rem;
 }
+text-typeh2 { 
+font-size: 0.9rem;
+color="#5f5f5f";
+border-left: solid 0.8rem #c0c0c0;
+padding-left: 0.5rem;
+}
 p { font-size: 0.45rem;}
 text-typeA { font-size: 0.8rem}
 text-typeC { font-size: 0.6rem}
