@@ -5,7 +5,12 @@ font-size: 100%;
 width:70%;
 margin: auto auto;
 }
-
+@media screen and (max-width: 751px) {
+#page{
+width: 95%;
+margin: auto auto;
+}
+}
 
 
 p { font-size: 0.75rem;}
