@@ -8,7 +8,11 @@ margin: auto auto;
 
 
 /*å©èoÇµ*/
-text-typeB { font-size: 0.8rem}
+align-txt{text-align: justify;
+text-justify: inter-ideograph;
+}
+text-typeB { font-size: 0.8rem;
+}
 
 text-typeh2 { 
 font-size: 1.5rem;
