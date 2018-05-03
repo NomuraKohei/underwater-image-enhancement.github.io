@@ -9,7 +9,7 @@ text-typeC { font-size: 1.1rem}
 text-typeh2 { 
 font-size: 1.5rem;
 color="#5f5f5f";
-border-left: solid 0.8rem #E3E4D9;
+border-left: solid 0.8rem #4682b4;
 padding-left: 0.5rem;
 }
 
@@ -18,3 +18,6 @@ font-size: 100%;
 width: 70%;
 margin: auto auto;
 }
+
+body { background:radial-gradient(#f0f8ff, #b0c4de); }
+
