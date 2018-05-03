@@ -1,5 +1,9 @@
 p { font-size: 0.75rem;}
 
+@media screen and (max-width: 751px) {
+p { font-size : 10px ; }
+}
+
 /*å©èoÇµ*/
 text-typeA { font-size: 1.0rem}
 text-typeB { font-size: 0.8rem;
@@ -20,4 +24,6 @@ margin: auto auto;
 }
 
 body { background:radial-gradient(#f0f8ff, #f5f5f5); }
+
+
 
