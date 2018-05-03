@@ -6,13 +6,7 @@ width:70%;
 margin: auto auto;
 }
 
-@media screen and (max-width: 751px) {
-#page{
-font-size: 4ptx;
-width: 80%;
-margin: auto auto;
-}
-}
+
 
 p { font-size: 0.75rem;}
 
