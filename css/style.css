@@ -57,5 +57,12 @@ height: auto;
 }
 }
 
+#pageFoot{
+border-top: solid 0.05rem #dcdcdc;
+}
 
+#copyright small{
+font-size: 0.5rem;
+line-height: 1.5;
+}
 
