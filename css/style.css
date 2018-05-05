@@ -6,6 +6,17 @@ width:70%;
 margin: auto auto;
 }
 
+a {
+  display: inline-block;
+  transition: .3s;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  text-decoration: none;
+}
+a:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
 
 /*å©èoÇµ*/
 align-txt{text-align: justify;
@@ -66,14 +77,6 @@ font-size: 0.5rem;
 line-height: 1.5;
 }
 
-a {
-  display: inline-block;
-  transition: .3s;
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  text-decoration: none;
-}
-a:hover {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+go_right{
+ float: right;
 }
