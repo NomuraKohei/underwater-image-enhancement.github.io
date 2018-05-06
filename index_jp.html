@@ -1,7 +1,7 @@
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html>
+<html lang="ja">
 <HEAD>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8" />
 <TITLE>Underwater Image Color Correction using Exposure-Bracketing Imaging</TITLE>
 <link rel="stylesheet" href="css/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -11,7 +11,7 @@
 <body>
 <div id="page">
 <font size="1" color="#808080">
-�ŏI�X�V��: 2018/5/6
+最終更新日: 2018/5/6
 </font>
 
 <go_right>
@@ -38,7 +38,7 @@
 <center>
 <text-typeh1>
 <B>
-�I���u���P�e�B���O�B����p���������摜�̐F�␳
+露光ブラケティング撮像を用いた水中画像の色補正
 </B>
 </text-typeh1>
 <br>
@@ -51,10 +51,10 @@ Underwater Image Color Correction using Exposure-Bracketing Imaging
 <br>
 
 <text-typeC>
-<a href="https://scholar.google.co.jp/citations?user=d9NiNg0AAAAJ&hl=ja">�쑺�V��</a>&ensp;<a href="https://sites.google.com/site/daisukesugimurahp/">�������</a>&ensp;�l�{���V<br>
+<a href="https://scholar.google.co.jp/citations?user=d9NiNg0AAAAJ&hl=ja">野村昂平</a>&ensp;<a href="https://sites.google.com/site/daisukesugimurahp/">杉村大輔</a>&ensp;浜本隆之<br>
 IEEE Signal Processing Letters (SPL), 2018
 </text-typeC>
-<br><text-typeB>(2016�N�̕������p�e������2.528)</text-typeB>
+<br><text-typeB>(2016年の文献引用影響率＝2.528)</text-typeB>
  <br><br>
 <div class="half_img"><img src="images/underwater_scene.png" alt="underwater_image" width=30%>
 <!-- <img src="images/our_colorcorrection.png" width="360" height="240"> -->
@@ -62,15 +62,15 @@ IEEE Signal Processing Letters (SPL), 2018
 </center><br><br>
 
 
-<text-typeh2>�T�v</text-typeh2>
+<text-typeh2>概要</text-typeh2>
 <hr>
 
 <text-typeB>
 <div align="justify">
-&emsp;�����ł́C�����̒��ł��ԐF�̔g���������ł��������邽�߁C�����摜�ɂ͐F���ꂪ������D�܂��C�����摜�̐F����̑傫���́C���̓`�d�����Ɉˑ����邽�߁C���[��J�����Ɣ�ʑ̂̋����ɉ����ĉ摜���̐F����̑傫���͕ω�����D�F���ꂪ�����������摜�ł́C�F��񂩂琅��������A���̓����𓾂邱�Ƃ�����Ȃ��߁C���A���̊ώ@���̓���Ƃ������p�r�ɒ��ڗp���邱�Ƃ�����D�����摜��F����̂Ȃ����F�������̃V�[���ɍč\���ł���΁C��q�������p��ɗ��p���邱�Ƃ��\�ƂȂ�D����āC�{�����ł́C�����摜�̐F��������P���C���F�������ɂ�����V�[���ɍč\�����邱�Ƃ�ړI�Ƃ���D
-<br>&emsp;��Ď�@�ł́C�����Ɩ��F����Ɋ�Â������摜�̐F��������P����D�����摜�̐F����́C�����̈قȂ�F���������Ɩ����Ǝ˂���邱�ƂŁC������ƍl����D���̉���Ɋ�Â��C���肵���Ɩ��F�𔒐F�ɕϊ����邱�ƂŐ����摜�̐F�␳���s���D
-<br>&emsp;�������Ȃ���C�����ɂ����Ă͐Ԑ������������������邽�߁C�Ɩ��F�̐��肪����ł���D
-<br>&emsp;�����ŁC��Ď�@�ł͘I���̈قȂ�摜��A�����Ď擾����I���u���P�e�B���O�B���ɂ�萅���V�[�����B������D���I���摜��p���邱�ƂŁC�����ɂ����čł���������Ԑ������\���Ɏ擾���邱�Ƃ��\�ƂȂ�D���I���摜�ɂ����ĐM���ʂ��O�a���₷���ΐ����́C���E�Z�I���摜����擾����D���̂悤�ɁC�قȂ�I�����ԂŎB�e�����摜���瓾�������I��I�ɍ������邱�Ƃɂ��C�e�F�����ɂ����āC�Ɩ��F������s�����߂ɏ\���ȐM���ʂ��������摜���擾���邱�Ƃ��ł���D���̂悤�ȍ����摜�ɏƖ��F������s�����Ƃɂ��C�����摜�̐F����̕␳����������D
+&emsp;水中では，可視光の中でも赤色の波長成分が最も減衰するため，水中画像には色ずれが生じる．また，水中画像の色ずれの大きさは，光の伝播距離に依存するため，水深やカメラと被写体の距離に応じて画像内の色ずれの大きさは変化する．色ずれが生じた水中画像では，色情報から水中生物や植物の特徴を得ることが困難なため，動植物の観察や種の特定といった用途に直接用いることが難しい．水中画像を色ずれのない白色光源下のシーンに再構成できれば，上述した応用先に利用することが可能となる．よって，本研究では，水中画像の色ずれを改善し，白色光源下におけるシーンに再構成することを目的とする．
+<br>&emsp;提案手法では，複数照明色推定に基づき水中画像の色ずれを改善する．水中画像の色ずれは，複数の異なる色を持った照明が照射されることで，生じると考える．この仮定に基づき，推定した照明色を白色に変換することで水中画像の色補正を行う．
+<br>&emsp;しかしながら，水中においては赤成分が著しく減衰するため，照明色の推定が困難である．
+<br>&emsp;そこで，提案手法では露光の異なる画像を連続して取得する露光ブラケティング撮像により水中シーンを撮像する．長露光画像を用いることで，水中において最も減衰する赤成分を十分に取得することが可能となる．長露光画像において信号量が飽和しやすい緑青成分は，中・短露光画像から取得する．このように，異なる露光時間で撮影した画像から得られる情報を選択的に合成することにより，各色成分において，照明色推定を行うために十分な信号量を持つ水中画像を取得することができる．このような合成画像に照明色推定を行うことにより，水中画像の色ずれの補正を実現する．
 
 </div>
 <br>
@@ -86,14 +86,14 @@ IEEE Signal Processing Letters (SPL), 2018
 <!--<font size="5" color="#5f5f5f"><B>Download</B></font>-->
 <!--<h2><font color="#5f5f5f">Download</font></h2>
 <hr>-->
-<text-typeh2>�_�E�����[�h</text-typeh2>
+<text-typeh2>ダウンロード</text-typeh2>
 <hr>
 <!-- <img src="images/underwater_image_enhancement.PNG" width="77" height="100" align="left" hspace="20" > -->
 <!-- <img src="images/underwater_image_enhancement.PNG" width=6% height=4.62% align="left" hspace=0.924% >-->
 <img src="images/underwater_image_enhancement.PNG" alt="IEEE_signal_processing_letter" width= 80rem height= 104rem align="left" hspace= 8rem vspace= 4rem>
 <text-typeA><B>
-�_��: ���掿ver. (40.4MB) [<a href="files/Underwater_Image_Color_Correction_using_exposure-bracketing_imaging.pdf">pdf</a>], 
-��掿ver. (1.3MB) [<a href="files/LOW_Underwater_Image_Color_Correction_using_exposure-bracketing_imaging.pdf">pdf</a>]
+論文: 高画質ver. (40.4MB) [<a href="files/Underwater_Image_Color_Correction_using_exposure-bracketing_imaging.pdf">pdf</a>], 
+低画質ver. (1.3MB) [<a href="files/LOW_Underwater_Image_Color_Correction_using_exposure-bracketing_imaging.pdf">pdf</a>]
 </B></text-typeA>
 
 <p>Underwater Image Color Correction using Exposure-Bracketing Imaging<br>
@@ -106,18 +106,18 @@ IEEE Signal Processing Letters (SPL), Vol.--, No.--, pp.--, May, 2018.
 <!-- <img src="images/underwater_image_enhancement_result.PNG" width="77" height="100" align="left" hspace="20"> -->
 <img src="images/underwater_image_enhancement_result.PNG" alt="IEEE_signal_processing_letter_supplementary" width= 80rem height= 104rem align="left" hspace= 8rem vspace= 1rem >
 <text-typeA><B>
-�⏕����: ���掿ver. (95.9MB) [<a href="files/supplemental_material.pdf">pdf</a>], 
-��掿ver. (7.5MB) [<a href="files/LOW_supplemental_material.pdf">pdf</a>]</B></text-typeA>
-<p>��ɏ]����@�ƒ�Ď�@�̔�r���ʁi�摜�j���L�ڂ���Ă��܂��D</p>
+補助資料: 高画質ver. (95.9MB) [<a href="files/supplemental_material.pdf">pdf</a>], 
+低画質ver. (7.5MB) [<a href="files/LOW_supplemental_material.pdf">pdf</a>]</B></text-typeA>
+<p>主に従来手法と提案手法の比較結果（画像）が記載されています．</p>
 <br clear="left">
 
 <img src="images/folder.png" alt="underwater_image_dataset" width= 80rem align="left" hspace= 8rem vspace= 8rem vspace= 1rem>
-<br><text-typeA><B>�f�[�^�Z�b�g: ���΂炭���҂���������...</text-typeA></B>
+<br><text-typeA><B>データセット: しばらくお待ちください...</text-typeA></B>
 <br clear="left">
 
 <img src="images/quote2.png" alt="our_paper_cite" width= 80rem align="left" hspace= 8rem vspace= 6rem>
-<text-typeA><B>���p: [<a href="UnderwaterImageColorCorrection.bib">BibTeX</a>]</text-typeA></B>
-<p>�_���̓��e��f�[�^�Z�b�g��p����ꍇ�́C�������̕��������p���ĉ������D</p>
+<text-typeA><B>引用: [<a href="UnderwaterImageColorCorrection.bib">BibTeX</a>]</text-typeA></B>
+<p>論文の内容やデータセットを用いる場合は，私たちの文献を引用して下さい．</p>
 <br clear="left">
 <br><br><br><br><br>
 
