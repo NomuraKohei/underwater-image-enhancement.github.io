@@ -1,128 +1,273 @@
 ﻿<!DOCTYPE html>
 <html lang="ja">
-<HEAD>
-<meta charset="UTF-8" />
-<TITLE>Underwater Image Color Correction using Exposure-Bracketing Imaging</TITLE>
-<link rel="stylesheet" href="../css/style.css">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TML64DG");
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-118647632-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-118647632-1");
+    </script>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/images/favicon.ico" />
+    <title>露光ブラケティング撮像を用いた水中画像の色補正</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="水中では，可視光の中でも赤色の波長成分が最も減衰するため，水中画像には色ずれが生じる．また，水中画像の色ずれの大きさは，光の伝播距離に依存するため，水深やカメラと被写体の距離に応じて画像内の色ずれの大きさは変化する．"
+    />
+  </head>
 
-</HEAD>
+  <body>
+    <header class="header">
+      <div style="font-size: 1rem">
+        <span><a href="../index.html">English</a> | 日本語</span>
+      </div>
+      <div>
+        <img
+          src="../images/share2.png"
+          alt="share"
+          width="20px"
+          height="20px"
+          hspace="7rem"
+        />
+        <a
+          class="sns-link"
+          href="https://twitter.com/home?status=https%3A//nomurakohei.github.io/underwater-image-enhancement.github.io/"
+        >
+          <img
+            src="../images/twitter.png"
+            alt="share_on_twitter"
+            width="20px"
+            height="20px"
+          />
+        </a>
+        <a
+          class="sns-link"
+          href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//nomurakohei.github.io/underwater-image-enhancement.github.io/&title=Underwater%20Image%20Color%20Correction%20using%20Exposure-Bracketing%20Imaging&summary=IEEE%20SPL%202018&source="
+        >
+          <img
+            src="../images/linkedin.png"
+            alt="share_on_linkedin"
+            width="20px"
+            height="20px"
+          />
+        </a>
+        <a
+          class="sns-link"
+          href="https://www.facebook.com/sharer/sharer.php?u=https%3A//nomurakohei.github.io/underwater-image-enhancement.github.io/"
+        >
+          <img
+            src="../images/facebook.png"
+            alt="share_on_facebook"
+            width="20px"
+            height="20px"
+          />
+        </a>
+        <a
+          class="sns-link"
+          href="https://plus.google.com/share?url=https%3A//nomurakohei.github.io/underwater-image-enhancement.github.io/"
+        >
+          <img
+            src="../images/google.png"
+            alt="share_on_google"
+            width="20px"
+            height="20px"
+          />
+        </a>
+      </div>
+    </header>
+    <main>
+      <section class="top">
+        <h1>露光ブラケティング撮像を用いた水中画像の色補正</h1>
+        <p class="author">
+          <a
+            href="https://scholar.google.co.jp/citations?user=d9NiNg0AAAAJ&hl=ja"
+            class="author-text"
+            >野村昂平</a
+          >
+          <a
+            href="https://sites.google.com/site/daisukesugimurahp/"
+            class="author-text"
+            >杉村大輔</a
+          >
+          <span class="author-text">浜本隆之</span>
+        </p>
+        <p>
+          IEEE Signal Processing Letters (SPL), 2018 (impact factor in 2018:
+          2.813)
+        </p>
+        <div class="top-img">
+          <img
+            src="../images/underwater_scene_original.jpg"
+            alt="underwater_image"
+            width="360px"
+            height="240.1px"
+          />
+          <img
+            src="../images/our_colorcorrection_restore.jpg"
+            alt="enhancement result"
+            width="360px"
+            height="240.1px"
+          />
+        </div>
+      </section>
 
-<body>
-<div id="page">
-<font size="2">
-<a href=https://nomurakohei.github.io/underwater-image-enhancement.github.io/>English</a> | 日本語
-</font>
+      <section class="container">
+        <h2 class="title">概要</h2>
+        <div class="contents">
+          <p class="text">
+            水中では，可視光の中でも赤色の波長成分が最も減衰するため，水中画像には色ずれが生じる．また，水中画像の色ずれの大きさは，光の伝播距離に依存するため，水深やカメラと被写体の距離に応じて画像内の色ずれの大きさは変化する．色ずれが生じた水中画像では，色情報から水中生物や植物の特徴を得ることが困難なため，動植物の観察や種の特定といった用途に直接用いることが難しい．水中画像を色ずれのない白色光源下のシーンに再構成できれば，上述した応用先に利用することが可能となる．よって，本研究では，水中画像の色ずれを改善し，白色光源下におけるシーンに再構成することを目的とする．<br />
+            提案手法では，複数照明色推定に基づき水中画像の色ずれを改善する．水中画像の色ずれは，複数の異なる色を持った照明が照射されることで，生じると考える．この仮定に基づき，推定した照明色を白色に変換することで水中画像の色補正を行う．<br />
+            しかしながら，水中においては赤成分が著しく減衰するため，照明色の推定が困難である．<br />
+            そこで，提案手法では露光の異なる画像を連続して取得する露光ブラケティング撮像により水中シーンを撮像する．長露光画像を用いることで，水中において最も減衰する赤成分を十分に取得することが可能となる．長露光画像において信号量が飽和しやすい緑青成分は，中・短露光画像から取得する．このように，異なる露光時間で撮影した画像から得られる情報を選択的に合成することにより，各色成分において，照明色推定を行うために十分な信号量を持つ水中画像を取得することができる．このような合成画像に照明色推定を行うことにより，水中画像の色ずれの補正を実現する．
+          </p>
+          <img
+            loading="lazy"
+            src="../images/overflow_underwater_image_cc.PNG"
+            alt="flow_our_enhancement"
+            width="100%"
+            class="abstract-img"
+          />
+        </div>
+      </section>
 
-<go_right>
-
-<a href="https://twitter.com/home?status=https%3A//nomurakohei.github.io/underwater-image-enhancement.github.io/">
-<img src="../images/twitter.png" alt="share_on_twitter" width= 20rem align="right"></a>
-
-<a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//nomurakohei.github.io/underwater-image-enhancement.github.io/&title=Underwater%20Image%20Color%20Correction%20using%20Exposure-Bracketing%20Imaging&summary=IEEE%20SPL%202018&source=">
-<img src="../images/linkedin.png" alt="share_on_linkedin" width= 20rem align="right"></a>
-
-<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//nomurakohei.github.io/underwater-image-enhancement.github.io/">
-<img src="../images/facebook.png" alt="share_on_facebook" width= 20rem align="right"></a>
-
-<a href="https://plus.google.com/share?url=https%3A//nomurakohei.github.io/underwater-image-enhancement.github.io/">
-<img src="../images/google.png" alt="share_on_google" width= 20rem align="right"></a>
-
-</go_right>
-<img src="../images/share2.png" alt="share" width= 18rem align="right" hspace=7rem>
-
-<br clear="right">
-
-<center>
-
-<br>
-<center>
-<text-typeh1>
-<B>
-露光ブラケティング撮像を用いた水中画像の色補正
-</B>
-</text-typeh1>
-<br>
-<text-typeC>
-<B>
-Underwater Image Color Correction using Exposure-Bracketing Imaging
-</B>
-</text-typeC>
-</center>
-<br>
-
-<text-typeC>
-<a href="https://scholar.google.co.jp/citations?user=d9NiNg0AAAAJ&hl=ja">野村昂平</a>&ensp;<a href="https://sites.google.com/site/daisukesugimurahp/">杉村大輔</a>&ensp;浜本隆之<br>
-IEEE Signal Processing Letters (SPL), 2018  (impact factor in 2018: 2.813)
-</text-typeC>
- <br><br>
-<div class="half_img"><img src="../images/underwater_scene.png" alt="underwater_image" width=30%>
-<!-- <img src="../images/our_colorcorrection.png" width="360" height="240"> -->
-<img src="../images/our_colorcorrection.png" alt="enhancement result" width=30%></div>
-</center><br><br>
-
-
-<text-typeh2>概要</text-typeh2>
-<hr>
-
-<text-typeB>
-<div align="justify">
-&emsp;水中では，可視光の中でも赤色の波長成分が最も減衰するため，水中画像には色ずれが生じる．また，水中画像の色ずれの大きさは，光の伝播距離に依存するため，水深やカメラと被写体の距離に応じて画像内の色ずれの大きさは変化する．色ずれが生じた水中画像では，色情報から水中生物や植物の特徴を得ることが困難なため，動植物の観察や種の特定といった用途に直接用いることが難しい．水中画像を色ずれのない白色光源下のシーンに再構成できれば，上述した応用先に利用することが可能となる．よって，本研究では，水中画像の色ずれを改善し，白色光源下におけるシーンに再構成することを目的とする．
-<br>&emsp;提案手法では，複数照明色推定に基づき水中画像の色ずれを改善する．水中画像の色ずれは，複数の異なる色を持った照明が照射されることで，生じると考える．この仮定に基づき，推定した照明色を白色に変換することで水中画像の色補正を行う．
-<br>&emsp;しかしながら，水中においては赤成分が著しく減衰するため，照明色の推定が困難である．
-<br>&emsp;そこで，提案手法では露光の異なる画像を連続して取得する露光ブラケティング撮像により水中シーンを撮像する．長露光画像を用いることで，水中において最も減衰する赤成分を十分に取得することが可能となる．長露光画像において信号量が飽和しやすい緑青成分は，中・短露光画像から取得する．このように，異なる露光時間で撮影した画像から得られる情報を選択的に合成することにより，各色成分において，照明色推定を行うために十分な信号量を持つ水中画像を取得することができる．このような合成画像に照明色推定を行うことにより，水中画像の色ずれの補正を実現する．
-
-</div>
-<br>
-</text-typeB>
-
-<center>
-<div class="max_img"><img src="../images/overflow_underwater_image_cc.PNG" alt="flow_our_enhancement" width="664" height="250"></div>
-
-</center><br>
-
-<text-typeh2>ダウンロード</text-typeh2>
-<hr>
-<img src="../images/underwater_image_enhancement.PNG" alt="IEEE_signal_processing_letter" width= 80rem height= 104rem align="left" style="margin: 0.3rem 0.5rem 0.5rem 0.5rem;">
-<text-typeA><B>
-論文: 高画質版 (40.4MB) [<a href="../files/Underwater_Image_Color_Correction_using_exposure-bracketing_imaging.pdf">pdf</a>], 
-低画質版 (1.3MB) [<a href="../files/LOW_Underwater_Image_Color_Correction_using_exposure-bracketing_imaging.pdf">pdf</a>]
-</B></text-typeA>
-
-<p>Underwater Image Color Correction using Exposure-Bracketing Imaging<br>
-Kohei Nomura, Daisuke sugimura, Takayuki Hamamoto<br>
-IEEE Signal Processing Letters (SPL), Volume: 25, Issue: 6, pp.893-897, June 2018.
-<br clear="left">
-</p>
-
-<img src="../images/underwater_image_enhancement_result.PNG" alt="IEEE_signal_processing_letter_supplementary" width= 80rem height= 104rem align="left" style="margin: 0rem 0.5rem 0.8rem 0.5rem;">
-<text-typeA><B>
-補助資料: 高画質版 (95.9MB) [<a href="../files/supplemental_material.pdf">pdf</a>], 
-低画質版 (7.5MB) [<a href="../files/LOW_supplemental_material.pdf">pdf</a>]</B></text-typeA>
-<p>主に従来手法と提案手法の比較結果（画像）が記載されています．</p>
-<br clear="left">
-
-<img src="../images/folder-underwater-image.png" alt="underwater_image_dataset" width= 80rem height= 104rem align="left" style="margin: 0.1rem 0.5rem 0.6rem 0.5rem;">
-<text-typeA><B>データセット: RAW画像 (1.37GB) [<a href="https://www.dropbox.com/s/rqr0nd4sb4t7p5t/PgmUnderwaterImageFiles.zip?dl=0">zip</a>], 
-RAW画像 (デモザイキング+リサイズ) (38.7MB) [<a href="https://www.dropbox.com/s/xiunv0bbl4f5c0p/BmpResizeUnderwaterImageFiles.zip?dl=0">zip</a>]
-</text-typeA></B>
-<br><p>
-提案手法の入力として使用した画像です．（Pass: 2018）
-</p>
-<br clear="left">
-
-<img src="../images/underwater_image_enhancement_quote.png" alt="our_paper_cite" width= 80rem height= 104rem align="left" style="margin: 0.2rem 0.5rem 0.5rem 0.5rem;">
-<text-typeA><B>引用: [<a href="../UnderwaterImageColorCorrection.bib">BibTeX</a>]</text-typeA></B>
-<p>論文の内容やデータセットを用いる場合は，私たちの文献を引用して下さい．</p>
-<br clear="left">
-<br><br><br><br><br>
-
-<footer id=pageFoot><p id="copyright"><font color="#808080">Copyright&copy; 2018 @KoheiNomura All Rights Reserved.</font></p></footer>
-<go_right>
-<font size="1" color="#808080">
-最終更新日: 2018/7/26
-</font>
-</go_right>
-</div>
-</body>
+      <section class="container">
+        <h2 class="title">ダウンロード</h2>
+        <div class="downloads">
+          <!-- Paper -->
+          <div class="download-content">
+            <img
+              loading="lazy"
+              src="../images/underwater_image_enhancement.jpg"
+              alt="IEEE_signal_processing_letter"
+              width="80px"
+              height="104px"
+            />
+            <section class="information">
+              <p class="download-link">
+                論文:
+                <a
+                  href="../files/Underwater_Image_Color_Correction_using_exposure-bracketing_imaging.pdf"
+                >
+                  高画質版
+                </a>
+                ,
+                <a
+                  href="../files/LOW_Underwater_Image_Color_Correction_using_exposure-bracketing_imaging.pdf"
+                >
+                  圧縮版
+                </a>
+              </p>
+              <p>
+                Underwater Image Color Correction using Exposure-Bracketing
+                Imaging<br />
+                Kohei Nomura, Daisuke sugimura, Takayuki Hamamoto<br />
+                IEEE Signal Processing Letters (SPL), Volume: 25, Issue: 6,
+                pp.893-897, June 2018.
+              </p>
+            </section>
+          </div>
+          <!-- Supplementary Material -->
+          <div class="download-content">
+            <img
+              loading="lazy"
+              src="../images/underwater_image_enhancement_result.jpg"
+              alt="IEEE_signal_processing_letter_supplementary"
+              width="80px"
+              height="106.666666666666667px"
+            />
+            <section class="information">
+              <p class="download-link">
+                補助資料:
+                <a href="../files/supplemental_material.pdf"> 高画質版 </a>
+                ,
+                <a href="../files/LOW_supplemental_material.pdf"> 圧縮版 </a>
+              </p>
+              <p class="supplementary-text">
+                主に従来手法と提案手法の比較結果（画像）が記載されています．
+              </p>
+            </section>
+          </div>
+          <!--  Dataset -->
+          <div class="download-content">
+            <img
+              loading="lazy"
+              src="../images/folder-underwater-image.png"
+              alt="underwater_image_dataset"
+              width="80px"
+              height="106.466165413533835px"
+            />
+            <section class="information">
+              <p class="download-link">
+                データセット: RAW画像 [<a
+                  href="https://www.dropbox.com/s/rqr0nd4sb4t7p5t/PgmUnderwaterImageFiles.zip?dl=0"
+                  >zip</a
+                >], RAW画像 (デモザイキング+リサイズ) [<a
+                  href="https://www.dropbox.com/s/xiunv0bbl4f5c0p/BmpResizeUnderwaterImageFiles.zip?dl=0"
+                  >zip</a
+                >]
+              </p>
+              <p class="supplementary-text">
+                提案手法の入力として使用した画像です．（Pass: 2018）
+              </p>
+            </section>
+          </div>
+          <!--  Citation -->
+          <div class="download-content">
+            <img
+              loading="lazy"
+              src="../images/underwater_image_enhancement_quote.jpg"
+              alt="our_paper_cite"
+              width="80px"
+              height="104px"
+            />
+            <section class="information">
+              <p class="download-link">
+                引用: [<a href="UnderwaterImageColorCorrection.bib">BibTeX</a>]
+              </p>
+              <p class="supplementary-text">
+                論文の内容やデータセットを用いる場合は，私たちの文献を引用して下さい．
+              </p>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer id="footer">
+      <p>Copyright&copy; 2018 - @KoheiNomura All Rights Reserved.</p>
+      <p>最終更新日: 2021/05/08</p>
+    </footer>
+  </body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript
+    ><iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-TML64DG"
+      height="0"
+      width="0"
+      style="display: none; visibility: hidden"
+    ></iframe
+  ></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 </html>
