@@ -1,160 +1,184 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <HEAD>
-
-<!-- Google Tag Manager -->
-<script>
-(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TML64DG');
-gtag('set', {'user_id': 'USER_ID'});
-</script>
-<!-- End Google Tag Manager -->
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118647632-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-118647632-1');
-  ga('set', 'userId', 'USER_ID');
-</script>
-
-<meta charset="UTF-8" />
-<TITLE>Underwater Image Color Correction using Exposure-Bracketing Imaging</TITLE>
-<link rel="stylesheet" href="css/style.css">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TML64DG');
+  </script>
+  <!-- End Google Tag Manager -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118647632-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-118647632-1');
+  </script>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="./images/favicon.ico">
+  <TITLE>Underwater Image Color Correction using Exposure-Bracketing Imaging</TITLE>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name=”description” content="Absorption and scattering of light in an underwater
+  scene saliently attenuate red spectrum components. They cause
+  heavy color distortions in the captured underwater images. In
+  this letter, we propose a method for color-correcting underwater
+  images, utilizing a framework of gray information estimation
+  for color constancy.">
 </HEAD>
 
 <body>
-<div id="page">
-<font size="2">
-English | <a href=https://nomurakohei.github.io/underwater-image-enhancement.github.io/jp/lan-jp.html>日本語</a>
-</font>
+  <header class="header">
+    <div style="font-size: 1rem;">
+      <span>English | <a href=https://nomurakohei.github.io/underwater-image-enhancement.github.io/jp/lan-jp.html>日本語</a></span>
+    </div>
+    <div>
+      <img src="images/share2.png" alt="share" width="20px" height="20px" hspace=7rem>
+      <a href="https://twitter.com/home?status=https%3A//nomurakohei.github.io/underwater-image-enhancement.github.io/">
+        <img src="images/twitter.png" alt="share_on_twitter" width="20px" height="20px" />
+      </a>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//nomurakohei.github.io/underwater-image-enhancement.github.io/&title=Underwater%20Image%20Color%20Correction%20using%20Exposure-Bracketing%20Imaging&summary=IEEE%20SPL%202018&source=">
+        <img src="images/linkedin.png" alt="share_on_linkedin" width="20px" height="20px">
+      </a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//nomurakohei.github.io/underwater-image-enhancement.github.io/">
+        <img src="images/facebook.png" alt="share_on_facebook" width="20px" height="20px">
+      </a>
+      <a href="https://plus.google.com/share?url=https%3A//nomurakohei.github.io/underwater-image-enhancement.github.io/">
+        <img src="images/google.png" alt="share_on_google" width="18px" height="20px">
+      </a>
+    </div>
+  </header>
+  <main>
+    <section class="top">
+      <h1>Underwater Image Color Correction<br />
+        using Exposure-Bracketing Imaging
+      </h1>
+      <p class="author">
+        <a href="https://scholar.google.co.jp/citations?user=d9NiNg0AAAAJ&hl=ja" class="author-text">Kohei Nomura</a>
+        <a href="https://sites.google.com/site/daisukesugimurahp/" class="author-text">Daisuke Sugimura</a>
+        <span class="author-text">Takayuki Hamamoto</span>
+      </p>
+      <p>IEEE Signal Processing Letters (SPL), 2018  (impact factor in 2018: 2.813)</p>
+      <div class="top-img">
+        <img src="images/underwater_scene.png" alt="underwater_image" width="360px" height="263.5px">
+        <img src="images/our_colorcorrection.png" alt="enhancement result" width="360px" height="263.5px">
+      </div>
+    </section>
+    
+    <section class="container">
+      <h2 class="title">Abstract</h2>
+      <div class="contents">
+        <p class="text">
+          Absorption and scattering of light in an underwater
+          scene saliently attenuate red spectrum components. They cause
+          heavy color distortions in the captured underwater images. In
+          this letter, we propose a method for color-correcting underwater
+          images, utilizing a framework of gray information estimation
+          for color constancy. The key novelty of our method is to utilize
+          exposure-bracketing imaging: a technique to capture multiple images
+          with different exposure times for color correction. The long exposure
+          image is useful for sufficiently acquiring red spectrum
+          information of underwater scenes. In contrast, pixel values in the
+          green and blue channels in the short-exposure image are suitable
+          because they are unlikely to attenuate more than the red ones. By
+          selecting appropriate images (i.e., least over- and under-exposed
+          images) for each color channel from those taken with exposure bracketing
+          imaging, we fuse an image that includes sufficient
+          spectral information of underwater scenes. The fused image
+          allows us to extract reliable gray information of scenes; thus,
+          effective color corrections can be achieved. We perform color
+          correction by linear regression of gray information estimated
+          from the fused image. Experiments using real underwater images
+          demonstrate the effectiveness of our method.
+        </p>
+        <img src="images/overflow_underwater_image_cc.PNG" alt="flow_our_enhancement" width="100%" class="abstract-img">
+      </div>
+    </section>
 
-<go_right>
-
-<a href="https://twitter.com/home?status=https%3A//nomurakohei.github.io/underwater-image-enhancement.github.io/">
-<img src="images/twitter.png" alt="share_on_twitter" width= 20rem align="right"></a>
-
-<a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//nomurakohei.github.io/underwater-image-enhancement.github.io/&title=Underwater%20Image%20Color%20Correction%20using%20Exposure-Bracketing%20Imaging&summary=IEEE%20SPL%202018&source=">
-<img src="images/linkedin.png" alt="share_on_linkedin" width= 20rem align="right"></a>
-
-<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//nomurakohei.github.io/underwater-image-enhancement.github.io/">
-<img src="images/facebook.png" alt="share_on_facebook" width= 20rem align="right"></a>
-
-<a href="https://plus.google.com/share?url=https%3A//nomurakohei.github.io/underwater-image-enhancement.github.io/">
-<img src="images/google.png" alt="share_on_google" width= 20rem align="right"></a>
-
-</go_right>
-<img src="images/share2.png" alt="share" width= 18rem align="right" hspace=7rem>
-<br clear="right">
-
-<center>
-
-<br>
-<center>
-<text-typeh1>
-<B>
-Underwater Image Color Correction using Exposure-Bracketing Imaging
-</B>
-</text-typeh1>
-</center>
-<br>
-
-<text-typeC>
-<a href="https://scholar.google.co.jp/citations?user=d9NiNg0AAAAJ&hl=ja">Kohei Nomura</a>&ensp;<a href="https://sites.google.com/site/daisukesugimurahp/">Daisuke Sugimura</a>&ensp;Takayuki Hamamoto<br>
-IEEE Signal Processing Letters (SPL), 2018  (impact factor in 2018: 2.813)
-</text-typeC> <br><br>
-<div class="half_img"><img src="images/underwater_scene.png" alt="underwater_image" width=30%>
-<!-- <img src="images/our_colorcorrection.png" width="360" height="240"> -->
-<img src="images/our_colorcorrection.png" alt="enhancement result" width=30%></div>
-</center><br><br>
-
-
-<text-typeh2>Abstract</text-typeh2>
-<hr>
-
-<text-typeB>
-<div align="justify">
-Absorption and scattering of light in an underwater
-scene saliently attenuate red spectrum components. They cause
-heavy color distortions in the captured underwater images. In
-this letter, we propose a method for color-correcting underwater
-images, utilizing a framework of gray information estimation
-for color constancy. The key novelty of our method is to utilize
-exposure-bracketing imaging: a technique to capture multiple images
-with different exposure times for color correction. The long exposure
-image is useful for sufficiently acquiring red spectrum
-information of underwater scenes. In contrast, pixel values in the
-green and blue channels in the short-exposure image are suitable
-because they are unlikely to attenuate more than the red ones. By
-selecting appropriate images (i.e., least over- and under-exposed
-images) for each color channel from those taken with exposurebracketing
-imaging, we fuse an image that includes sufficient
-spectral information of underwater scenes. The fused image
-allows us to extract reliable gray information of scenes; thus,
-effective color corrections can be achieved. We perform color
-correction by linear regression of gray information estimated
-from the fused image. Experiments using real underwater images
-demonstrate the effectiveness of our method.
-</div>
-<br>
-</text-typeB>
-
-<center>
-<div class="max_img"><img src="images/overflow_underwater_image_cc.PNG" alt="flow_our_enhancement" width="664" height="250"></div>
-
-</center><br>
-
-<text-typeh2>Download</text-typeh2>
-<hr>
-
-<img src="images/underwater_image_enhancement.PNG" alt="IEEE_signal_processing_letter" width= 80rem height= 104rem align="left" style="margin: 0.3rem 0.5rem 0.5rem 0.5rem;">
-<text-typeA><B>
-Paper: high-res version (40.4MB) [<a href="files/Underwater_Image_Color_Correction_using_exposure-bracketing_imaging.pdf">pdf</a>], 
-low-res version (1.3MB) [<a href="files/LOW_Underwater_Image_Color_Correction_using_exposure-bracketing_imaging.pdf">pdf</a>]
-</B></text-typeA>
-
-<p>Underwater Image Color Correction using Exposure-Bracketing Imaging<br>
-Kohei Nomura, Daisuke sugimura, Takayuki Hamamoto<br>
-IEEE Signal Processing Letters (SPL), Volume: 25, Issue: 6, pp.893-897, June 2018.
-<br clear="left">
-</p>
-
-<img src="images/underwater_image_enhancement_result.PNG" alt="IEEE_signal_processing_letter_supplementary" width= 80rem height= 104rem align="left" style="margin: 0rem 0.5rem 0.8rem 0.5rem;">
-<text-typeA><B>Supplementary Material: high-res version (95.9MB) [<a href="files/supplemental_material.pdf">pdf</a>], 
-low-res version (7.5MB) [<a href="files/LOW_supplemental_material.pdf">pdf</a>]</B></text-typeA>
-<p>For more results, please see the supplementary material.</p>
-<br clear="left">
-
-<img src="images/folder-underwater-image.png" alt="underwater_image_dataset" width= 80rem height= 104rem align="left" style="margin: 0.1rem 0.5rem 0.6rem 0.5rem;">
-<text-typeA><B>
-Dataset: RAW image (1.37GB) [<a href="https://www.dropbox.com/s/rqr0nd4sb4t7p5t/PgmUnderwaterImageFiles.zip?dl=0">zip</a>], 
-RAW image (demosaicing+resize) (38.7MB) [<a href="https://www.dropbox.com/s/xiunv0bbl4f5c0p/BmpResizeUnderwaterImageFiles.zip?dl=0">zip</a>]
-</text-typeA></B>
-<br><p>
-This is the underwater image dataset that was used in our paper. (Pass: 2018)
-</p>
-<br clear="left">
-
-<img src="images/underwater_image_enhancement_quote.png" alt="our_paper_cite" width= 80rem height= 104rem align="left" style="margin: 0.2rem 0.5rem 0.5rem 0.5rem;">
-<text-typeA><B>Citation: [<a href="UnderwaterImageColorCorrection.bib">BibTeX</a>]</text-typeA></B>
-<p>If you use images of our pulications or our dataset, please cite the paper.</p>
-<br clear="left">
-<br><br><br><br><br>
-
-<footer id=pageFoot><p id="copyright"><font color="#808080">Copyright&copy; 2018 @KoheiNomura All Rights Reserved.</font></p></footer>
-<go_right>
-<font size="1" color="#808080">
-Last updated: Jul 26, 2018
-</font>
-</go_right>
-</div>
+    <section class="container">
+      <h2 class="title">Download</h2>
+      <div class="downloads">
+        <!-- Paper -->
+        <div class="download-content">
+          <img src="images/underwater_image_enhancement.PNG" alt="IEEE_signal_processing_letter" width="80px" height="104px">
+          <section class="information">
+            <p class="download-link">
+              Paper: 
+              <a href="files/Underwater_Image_Color_Correction_using_exposure-bracketing_imaging.pdf">
+                high-res version
+              </a>
+              , 
+              <a href="files/LOW_Underwater_Image_Color_Correction_using_exposure-bracketing_imaging.pdf">
+                low-res version
+              </a>
+            </p>
+            <p>
+              Underwater Image Color Correction using Exposure-Bracketing Imaging<br>
+              Kohei Nomura, Daisuke sugimura, Takayuki Hamamoto<br>
+              IEEE Signal Processing Letters (SPL), Volume: 25, Issue: 6, pp.893-897, June 2018.
+            </p>
+          </section>
+        </div>
+        <!-- Supplementary Material -->
+        <div class="download-content">
+          <img src="images/underwater_image_enhancement_result.PNG" alt="IEEE_signal_processing_letter_supplementary" width="80px" height="104px">
+          <section class="information">
+            <p class="download-link">
+              Supplementary Material: 
+              <a href="files/supplemental_material.pdf">
+                high-res version
+              </a>
+              , 
+              <a href="files/LOW_supplemental_material.pdf">
+                low-res version
+              </a>
+            </p>
+            <p class="supplementary-text">
+              For more results, please see the supplementary material.
+            </p>
+          </section>
+        </div>
+        <!--  Dataset -->
+        <div class="download-content">
+          <img src="images/folder-underwater-image.png" alt="underwater_image_dataset" width="80px" height="104px">
+          <section class="information">
+            <p class="download-link">
+              Dataset: 
+              RAW image [<a href="https://www.dropbox.com/s/rqr0nd4sb4t7p5t/PgmUnderwaterImageFiles.zip?dl=0">zip</a>], 
+              RAW image (demosaicing+resize) [<a href="https://www.dropbox.com/s/xiunv0bbl4f5c0p/BmpResizeUnderwaterImageFiles.zip?dl=0">zip</a>]
+            </p>
+            <p class="supplementary-text">
+              This is the underwater image dataset that was used in our paper. (Pass: 2018)
+            </p>
+          </section>
+        </div>
+        <!--  Citation -->
+        <div class="download-content">
+          <img src="images/underwater_image_enhancement_quote.png" alt="our_paper_cite" width="80px" height="104px">
+          <section class="information">
+            <p class="download-link">
+              Citation: [<a href="UnderwaterImageColorCorrection.bib">BibTeX</a>]
+            </p>
+            <p class="supplementary-text">
+              If you use images of our publications or our dataset, please cite the paper.
+            </p>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer id="footer">
+    <p>
+      Copyright&copy; 2018 - @KoheiNomura All Rights Reserved.
+    </p>
+    <p>
+      Last updated: May 08, 2021
+    </p>
+  </footer>
 </body>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TML64DG"
