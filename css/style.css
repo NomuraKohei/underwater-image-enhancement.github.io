@@ -82,16 +82,19 @@ a:active {
 }
 
 .author a {
-  display: inline-block;
   transition: 0.3s;
   -webkit-transform: scale(1);
   transform: scale(1);
   text-decoration: none;
 }
 
+.author a + span {
+  display: none;
+}
+
 .author a:hover {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .author-text {
@@ -213,6 +216,9 @@ a:active {
   .author-text {
     margin-left: 0;
   }
+  .author a + span {
+    display: inline;
+  }
   p.publication {
     font-size: 16px;
   }
@@ -252,10 +258,6 @@ a:active {
   p.author {
     font-size: 20px;
     text-align: left;
-
-    display: flex;
-    flex-direction: column;
-
     margin-bottom: 1rem;
   }
   .author a:hover {
