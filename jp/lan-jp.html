@@ -99,18 +99,24 @@
           2.813)</span>
         </p>
         <div class="top-img">
-          <img
-            src="../images/underwater_scene_original.jpg"
-            alt="underwater_image"
-            width="360px"
-            height="240.1px"
-          />
-          <img
-            src="../images/our_colorcorrection_restore.jpg"
-            alt="enhancement result"
-            width="360px"
-            height="240.1px"
-          />
+          <picture>
+            <source srcset="../images/underwater_scene_original_small.jpg" media="(max-width: 700px)"/>
+            <img
+              src="../images/underwater_scene_original.jpg"
+              alt="underwater_image"
+              width="360px"
+              height="240.1px"
+            />
+          </picture>
+          <picture>
+            <source srcset="../images/our_colorcorrection_restore_small.jpg" media="(max-width: 700px)"/>
+            <img
+              src="../images/our_colorcorrection_restore.jpg"
+              alt="enhancement result"
+              width="360px"
+              height="240.1px"
+            />
+          </picture>
         </div>
       </section>
 

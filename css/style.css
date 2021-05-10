@@ -106,7 +106,7 @@ a:active {
   justify-content: center;
 }
 
-.top-img img {
+.top-img picture {
   margin: 2rem 2px 0 2px;
 }
 
@@ -225,9 +225,13 @@ a:active {
   p.publication span {
     display: block;
   }
-  .top-img img {
+  .top-img picture {
     width: 48%;
     height: 32.020253164556962%;
+  }
+  .top-img picture img {
+    width: 100%;
+    height: 66.7%;
   }
   .container {
     padding: 0 2%;
