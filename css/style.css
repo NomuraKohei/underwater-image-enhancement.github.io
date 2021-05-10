@@ -82,19 +82,11 @@ a:active {
 }
 
 .author a {
-  transition: 0.3s;
-  -webkit-transform: scale(1);
-  transform: scale(1);
   text-decoration: none;
 }
 
 .author a + span {
   display: none;
-}
-
-.author a:hover {
-  -webkit-transform: scale(1.2);
-  transform: scale(1.2);
 }
 
 .author-text {
@@ -263,9 +255,5 @@ a:active {
     font-size: 20px;
     text-align: left;
     margin-bottom: 1rem;
-  }
-  .author a:hover {
-    -webkit-transform: scale(1.04);
-    transform: scale(1.04);
   }
 }
