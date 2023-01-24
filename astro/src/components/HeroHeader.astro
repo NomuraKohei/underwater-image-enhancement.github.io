@@ -1,28 +1,49 @@
 ---
-// Astro will bundle and optimize this CSS for you automatically
-// This also works for preprocessor files like .scss, .styl, etc.
+import { Trans } from 'astro-i18next/components';
+import { t } from 'i18next';
 ---
 
 <style lang="scss">
   .top {
-    margin-bottom: 6rem;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
     width: 100%;
+    height: calc(100vh - 56px);
+    text-align: center;
 
     h1 {
       display: block;
       width: 100%;
-      margin-bottom: 1rem;
+      margin: 0 0 1rem;
       font-size: var(--text-large);
-      text-align: justify;
-      text-align-last: justify;
-      letter-spacing: 0.17rem;
+      text-align: left;
+      // text-align: justify;
+      // text-align-last: justify;
+      // letter-spacing: 0.17rem;
+
+      @media screen and (max-width: 840px) {
+        padding: 0 1rem;
+        font-size: var(--text-larger);
+        letter-spacing: initial;
+        text-align: initial;
+        text-align-last: initial;
+
+        br {
+          display: none;
+        }
+      }
     }
   }
 
   .author {
     font-size: 1rem;
     text-align: left;
+
+    @media screen and (max-width: 840px) {
+      padding: 0 1rem;
+    }
 
     a {
       margin-right: 0.5rem;
@@ -31,37 +52,78 @@
 
   .publication {
     text-align: left;
-    margin-bottom: 2rem;
+    margin-bottom: 6rem;
+
+    @media screen and (max-width: 840px) {
+      margin-bottom: 3rem;
+      padding: 0 1rem;
+    }
   }
 
-  .top-img {
+  .images {
+    @media screen and (max-width: 840px) {
+      width: 100%;
+    }
+  }
+
+  .imagesWrapper {
     display: flex;
     justify-content: center;
+
+    @media screen and (max-width: 840px) {
+      justify-content: flex-start;
+      padding: 0 1rem;
+      overflow-x: scroll;
+    }
+
+    img {
+      border-radius: 8px;
+
+      @media screen and (max-width: 840px) {
+        width: 80%;
+        max-width: 376px;
+        aspect-ratio: 4 / 3;
+      }
+
+      &:first-child {
+        margin-right: 0.5rem;
+      }
+    }
   }
 
-  img {
-    border-radius: 8px;
-  }
+  .scroll {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    height: 40px;
+    background: var(--text-color-secondary);
 
-  img:first-child {
-    margin-right: 0.5rem;
+    @media screen and (max-width: 840px) {
+      bottom: -20px;
+    }
   }
 </style>
 
 <section class="top">
   <h1>
-    Underwater Image Color Correction<br />
-    using Exposure-Bracketing Imaging
+    {t('main.title.first')}<br />
+    {t('main.title.second')}
   </h1>
-  <p class="author">
-    <a href="https://scholar.google.co.jp/citations?user=d9NiNg0AAAAJ">Kohei Nomura</a>
-    <a href="https://sites.google.com/site/daisukesugimurahp/">Daisuke Sugimura</a>Takayuki Hamamoto
-  </p>
+  <Trans i18nKey="main.author">
+    <p class="author">
+      <a href="https://scholar.google.co.jp/citations?user=d9NiNg0AAAAJ">Kohei Nomura</a>
+      <a href="https://sites.google.com/site/daisukesugimurahp/">Daisuke Sugimura</a><span>Takayuki Hamamoto</span>
+    </p>
+  </Trans>
   <p class="publication">
-    IEEE Signal Processing Letters (SPL), <span>2018 (impact factor in 2018: 2.813)</span>
+    {t('main.paperInfo')}
   </p>
-  <div class="top-img">
-    <img src="/original.webp" alt="Color distorted DistoDhiho's seahorse" width="376" height="282" decoding="async" />
-    <img src="/restore.webp" alt="Brilliant DistoDhiho's seahorse" width="376" height="282" decoding="async" />
+  <div class="images">
+    <div class="imagesWrapper">
+      <img src="/original.webp" alt={t('main.imageAlts.first')} width="376" height="282" decoding="async" />
+      <img src="/restore.webp" alt={t('main.imageAlts.second')} width="376" height="282" decoding="async" />
+    </div>
   </div>
+  <div class="scroll"></div>
 </section>

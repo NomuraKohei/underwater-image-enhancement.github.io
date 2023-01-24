@@ -1,13 +1,36 @@
-<header class="header">
-  <div>English | <a href="./jp/lan-jp.html">日本語</a></div>
+---
+import i18next from 'i18next';
+---
+
+<header>
+  <>
+    {
+      i18next.language === 'en' ? (
+        <div>
+          English | <a href="/ja/">日本語</a>
+        </div>
+      ) : (
+        <div>
+          <a href="/">English</a> | 日本語
+        </div>
+      )
+    }
+  </>
 </header>
 
-<style>
+<style lang="scss">
   /* HEADER */
-  .header {
+  header {
     display: flex;
     align-items: center;
     width: 760px;
-    margin: 2rem 0;
+    height: 56px;
+    padding: 1rem 0;
+    box-sizing: border-box;
+
+    @media screen and (max-width: 840px) {
+      width: 100%;
+      padding: 1rem;
+    }
   }
 </style>

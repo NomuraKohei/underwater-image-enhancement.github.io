@@ -1,0 +1,140 @@
+---
+import { t, changeLanguage } from "i18next";
+import Content from "../../components/Content.astro";
+import DownloadContent from "../../components/DownloadContent.astro";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import HeroHeader from "../../components/HeroHeader.astro";
+import Layout from "../../layouts/Layout.astro";
+
+changeLanguage("ja");
+---
+
+<style lang="scss">
+  main {
+    width: var(--view-width);
+
+    @media screen and (max-width: 840px) {
+      width: 100%;
+    }
+  }
+
+  .abstract-text {
+    margin-bottom: 2rem;
+    text-align: justify;
+
+    @media screen and (max-width: 840px) {
+      padding: 0 1rem;
+    }
+  }
+
+  .abstract-imageWrap {
+    width: 100%;
+
+    @media screen and (max-width: 840px) {
+      overflow-x: scroll;
+    }
+  }
+
+  .abstract-image {
+    @media screen and (max-width: 840px) {
+      padding: 0 1rem;
+      width: 760px;
+      min-width: 760px;
+    }
+  }
+
+  .downloads {
+    @media screen and (max-width: 840px) {
+      padding: 0 1rem;
+    }
+  }
+</style>
+
+<Layout title={t('site.title')} description={t('site.description')}>
+  <Header />
+  <main>
+    <HeroHeader />
+    <Content title={t('abstract.title')}>
+      <p class="abstract-text">
+        {t('abstract.description')}
+      </p>
+      <div class="abstract-imageWrap">
+        <img
+          loading="lazy"
+          src="/method.webp"
+          alt={t('abstract.alt')}
+          width="760"
+          height="286"
+          class="abstract-image"
+          decoding="async"
+        />
+      </div>
+    </Content>
+    <Content title={t('download.title')}>
+      <div class="downloads">
+        <DownloadContent
+          imgSrc="/paper.webp"
+          title={t('download.paper.title')}
+          links={[
+            {
+              text: t('download.paper.links.first'),
+              url: '/Underwater_Image_Color_Correction_using_exposure-bracketing_imaging.pdf',
+            },
+            {
+              text: t('download.paper.links.second'),
+              url: '/LOW_Underwater_Image_Color_Correction_using_exposure-bracketing_imaging.pdf',
+            },
+          ]}
+          description={[
+            t('download.paper.description.first'),
+            t('download.paper.description.second'),
+            t('download.paper.description.third'),
+          ]}
+        />
+        <DownloadContent
+          imgSrc="/supplementaryMaterial.webp"
+          title={t('download.supplementary.title')}
+          links={[
+            {
+              text: t('download.supplementary.links.first'),
+              url: '/supplemental_material.pdf',
+            },
+            {
+              text: t('download.supplementary.links.second'),
+              url: '/LOW_supplemental_material.pdf',
+            },
+          ]}
+          description={[t('download.supplementary.description.first')]}
+        />
+        <DownloadContent
+          imgSrc="/dataset.webp"
+          title={t('download.dataset.title')}
+          links={[
+            {
+              text: t('download.dataset.links.first'),
+              url: 'https://www.dropbox.com/s/rqr0nd4sb4t7p5t/PgmUnderwaterImageFiles.zip?dl=0',
+            },
+            {
+              text: t('download.dataset.links.second'),
+              url: 'https://www.dropbox.com/s/xiunv0bbl4f5c0p/BmpResizeUnderwaterImageFiles.zip?dl=0',
+            },
+          ]}
+          description={[t('download.dataset.description.first')]}
+        />
+        <DownloadContent
+          imgSrc="/quote.webp"
+          title={t('download.citation.title')}
+          links={[
+            {
+              text: t('download.citation.links.first'),
+              url: '/UnderwaterImageColorCorrection.bib',
+            },
+          ]}
+          description={[t('download.citation.description.first')]}
+        />
+      </div>
+    </Content>
+  </main>
+  <Footer />
+</Layout>

@@ -15,7 +15,7 @@ interface Props {
 const { imgSrc, title, links, description }: Props = Astro.props;
 ---
 
-<style>
+<style lang="scss">
   .download-content {
     display: flex;
     margin-bottom: 2rem;
@@ -25,19 +25,38 @@ const { imgSrc, title, links, description }: Props = Astro.props;
     margin-right: 2rem;
     border-radius: 4px;
     box-shadow: 0 0 4px 1px #ddd;
+
+    @media screen and (max-width: 840px) {
+      max-height: 128px;
+      margin-right: 1rem;
+    }
   }
 
   .title {
     font-weight: bold;
+
+    @media screen and (max-width: 840px) {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0.25rem;
   }
 
   .link {
-    padding: 4px 12px;
+    padding: 0 12px;
     margin-right: 0.5rem;
     color: rgb(28 89 187);
     text-decoration: none;
     border: 1px solid #1c59bb;
     border-radius: 14px;
+
+    @media screen and (max-width: 840px) {
+      margin-bottom: 0.25rem;
+    }
   }
 
   .link:hover {
@@ -49,11 +68,19 @@ const { imgSrc, title, links, description }: Props = Astro.props;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @media screen and (max-width: 840px) {
+      justify-content: flex-start;
+    }
   }
 
   .description {
     height: 54px;
     font-size: var(--text-small);
+
+    @media screen and (max-width: 840px) {
+      height: auto;
+    }
   }
 </style>
 
@@ -61,7 +88,7 @@ const { imgSrc, title, links, description }: Props = Astro.props;
   <img loading="lazy" src={imgSrc} alt="" width="96" height="128" decoding="async" />
   <section class="information">
     <p class="title">{title}</p>
-    <span>
+    <div class="links">
       {
         links.map((item) => (
           <a href={item.url} class="link" target="_blank" rel="noopener noreferrer">
@@ -69,7 +96,7 @@ const { imgSrc, title, links, description }: Props = Astro.props;
           </a>
         ))
       }
-    </span>
+    </div>
     <p class="description">
       {
         description.map((item) => (

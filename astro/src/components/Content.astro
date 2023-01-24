@@ -1,13 +1,10 @@
 ---
-// Astro will bundle and optimize this CSS for you automatically
-// This also works for preprocessor files like .scss, .styl, etc.
-// import '../styles/utils.css';
 const { title } = Astro.props;
 ---
 
-<style>
+<style lang="scss">
   .container {
-    margin-bottom: 8rem;
+    margin: 5rem 0 10rem;
     text-align: left;
   }
 
@@ -18,10 +15,13 @@ const { title } = Astro.props;
   }
 
   .title {
-    padding-left: 1rem;
     margin-bottom: 2rem;
+    font-size: var(--text-larger);
     color: var(--text-color-secondary);
-    border-left: solid 0.8rem var(--text-color-secondary);
+
+    @media screen and (max-width: 840px) {
+      padding: 0 1rem;
+    }
   }
 </style>
 

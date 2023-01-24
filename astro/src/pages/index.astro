@@ -1,10 +1,13 @@
 ---
-import Content from '../components/Content.astro';
-import DownloadContent from '../components/DownloadContent.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import HeroHeader from '../components/HeroHeader.astro';
-import Layout from '../layouts/Layout.astro';
+import { t, changeLanguage } from "i18next";
+import Content from "../components/Content.astro";
+import DownloadContent from "../components/DownloadContent.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import HeroHeader from "../components/HeroHeader.astro";
+import Layout from "../layouts/Layout.astro";
+
+changeLanguage("en");
 ---
 
 <style lang="scss">
@@ -13,110 +16,122 @@ import Layout from '../layouts/Layout.astro';
 
     @media screen and (max-width: 840px) {
       width: 100%;
-      padding: 0 1rem;
     }
   }
 
   .abstract-text {
     margin-bottom: 2rem;
     text-align: justify;
-    text-justify: inter-ideograph;
+
+    @media screen and (max-width: 840px) {
+      padding: 0 1rem;
+    }
+  }
+
+  .abstract-imageWrap {
+    width: 100%;
+
+    @media screen and (max-width: 840px) {
+      overflow-x: scroll;
+    }
+  }
+
+  .abstract-image {
+    @media screen and (max-width: 840px) {
+      padding: 0 1rem;
+      width: 760px;
+      min-width: 760px;
+    }
+  }
+
+  .downloads {
+    @media screen and (max-width: 840px) {
+      padding: 0 1rem;
+    }
   }
 </style>
 
-<Layout
-  title="Underwater Image Color Correction using Exposure-Bracketing Imaging"
-  description="Absorption and scattering of light in an underwater scene saliently attenuate red spectrum components. They cause heavy color distortions in the captured underwater images. In this letter, we propose a method for color-correcting underwater images, utilizing a framework of gray information estimation for color constancy."
->
+<Layout title={t('site.title')} description={t('site.description')}>
   <Header />
   <main>
     <HeroHeader />
-    <Content title="Abstract">
+    <Content title={t('abstract.title')}>
       <p class="abstract-text">
-        Absorption and scattering of light in an underwater scene saliently attenuate red spectrum components. They
-        cause heavy color distortions in the captured underwater images. In this letter, we propose a method for
-        color-correcting underwater images, utilizing a framework of gray information estimation for color constancy.
-        The key novelty of our method is to utilize exposure-bracketing imaging: a technique to capture multiple images
-        with different exposure times for color correction. The long exposure image is useful for sufficiently acquiring
-        red spectrum information of underwater scenes. In contrast, pixel values in the green and blue channels in the
-        short-exposure image are suitable because they are unlikely to attenuate more than the red ones. By selecting
-        appropriate images (i.e., least over- and under-exposed images) for each color channel from those taken with
-        exposure bracketing imaging, we fuse an image that includes sufficient spectral information of underwater
-        scenes. The fused image allows us to extract reliable gray information of scenes; thus, effective color
-        corrections can be achieved. We perform color correction by linear regression of gray information estimated from
-        the fused image. Experiments using real underwater images demonstrate the effectiveness of our method.
+        {t('abstract.description')}
       </p>
-      <img
-        loading="lazy"
-        src="/method.webp"
-        alt="flow_our_enhancement"
-        width="760"
-        height="286"
-        class="abstract-text"
-        decoding="async"
-      />
+      <div class="abstract-imageWrap">
+        <img
+          loading="lazy"
+          src="/method.webp"
+          alt={t('abstract.alt')}
+          width="760"
+          height="286"
+          class="abstract-image"
+          decoding="async"
+        />
+      </div>
     </Content>
-    <Content title="Download">
+    <Content title={t('download.title')}>
       <div class="downloads">
         <DownloadContent
           imgSrc="/paper.webp"
-          title="Paper"
+          title={t('download.paper.title')}
           links={[
             {
-              text: 'high-res version',
+              text: t('download.paper.links.first'),
               url: '/Underwater_Image_Color_Correction_using_exposure-bracketing_imaging.pdf',
             },
             {
-              text: 'low-res version',
+              text: t('download.paper.links.second'),
               url: '/LOW_Underwater_Image_Color_Correction_using_exposure-bracketing_imaging.pdf',
             },
           ]}
           description={[
-            'Underwater Image Color Correction using Exposure-Bracketing Imaging',
-            'Kohei Nomura, Daisuke sugimura, Takayuki Hamamoto',
-            'IEEE Signal Processing Letters (SPL), Volume: 25, Issue: 6, pp.893-897, June 2018.',
+            t('download.paper.description.first'),
+            t('download.paper.description.second'),
+            t('download.paper.description.third'),
           ]}
         />
         <DownloadContent
           imgSrc="/supplementaryMaterial.webp"
-          title="Supplementary Material"
+          title={t('download.supplementary.title')}
           links={[
             {
-              text: 'high-res version',
+              text: t('download.supplementary.links.first'),
               url: '/supplemental_material.pdf',
             },
             {
-              text: 'low-res version',
+              text: t('download.supplementary.links.second'),
               url: '/LOW_supplemental_material.pdf',
             },
           ]}
-          description={['For more results, please see the supplementary material.']}
+          description={[t('download.supplementary.description.first')]}
         />
         <DownloadContent
           imgSrc="/dataset.webp"
-          title="Dataset"
+          title={t('download.dataset.title')}
           links={[
             {
-              text: 'RAW image',
+              text: t('download.dataset.links.first'),
               url: 'https://www.dropbox.com/s/rqr0nd4sb4t7p5t/PgmUnderwaterImageFiles.zip?dl=0',
             },
             {
-              text: 'RAW image (demosaicing+resize)',
+              text: t('download.dataset.links.second'),
               url: 'https://www.dropbox.com/s/xiunv0bbl4f5c0p/BmpResizeUnderwaterImageFiles.zip?dl=0',
             },
           ]}
-          description={['This is the underwater image dataset that was used in our paper. (Pass: 2018)']}
+          description={[t('download.dataset.description.first')]}
         />
         <DownloadContent
           imgSrc="/quote.webp"
-          title="Citation"
+          title={t('download.citation.title')}
           links={[
             {
-              text: 'BibTeX',
+              text: t('download.citation.links.first'),
               url: '/UnderwaterImageColorCorrection.bib',
             },
           ]}
-          description={['If you use images of our publications or our dataset, please cite the paper.']}
+          description={[t('download.citation.description.first')]}
         />
       </div>
     </Content>

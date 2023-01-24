@@ -3,6 +3,7 @@ import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 import compress from 'astro-compress';
+import astroI18next from 'astro-i18next';
 import purgecss from 'astro-purgecss';
 
 export default defineConfig({
@@ -12,7 +13,7 @@ export default defineConfig({
     },
   },
   // Your final, deployed URL
-  site: 'https://nomurakohei.github.io/underwater-image-enhancement.github.io/',
+  site: 'https://nomurakohei.github.io/underwater-image-enhancement.github.io',
   // The base path to deploy to
   base: '/',
   integrations: [
@@ -33,5 +34,6 @@ export default defineConfig({
         forward: ['dataLayer.push'],
       },
     }),
+    astroI18next(),
   ],
 });

@@ -1,6 +1,9 @@
 ---
 import { GoogleAnalytics } from 'astro-google-analytics';
 import { SEO, Props as AstroSeoProps } from 'astro-seo';
+import i18next from 'i18next';
+// import i18next, { t } from "i18next";
+// import { Trans, HeadHrefLangs } from "astro-i18next/components";
 
 import 'normalize.css';
 import '../styles/utils.css';
@@ -14,28 +17,8 @@ export type Props = AstroSeoProps & {
 const { title, description, ...seoProps }: Props = Astro.props;
 ---
 
-<style lang="scss">
-  body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    // padding: 0 136px;
-    // background: radial-gradient(#f0f8ff, #f5f5f5);
-    color: var(--text-color-primary);
-    font-family: system-ui, sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
-  @media (prefers-color-scheme: dark) {
-    html {
-      // background-color: #000;
-      // color: #fff;
-      color-scheme: light;
-    }
-  }
-</style>
-
-<html lang="en">
+<!DOCTYPE html>
+<html lang={i18next.language}>
   <head>
     <GoogleAnalytics id="G-TC1W8426W1" />
     <meta charset="utf-8" />
@@ -47,5 +30,24 @@ const { title, description, ...seoProps }: Props = Astro.props;
   </head>
   <body>
     <slot />
-  </body>
+  </body><style lang="scss">
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      background: linear-gradient(0deg, #ffffff, transparent), radial-gradient(#ffffff, #eef2ff, #9caae1);
+      background-repeat: no-repeat;
+      color: var(--text-color-primary);
+      font-family: system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    @media (prefers-color-scheme: dark) {
+      html {
+        // background-color: #000;
+        // color: #fff;
+        color-scheme: light;
+      }
+    }
+  </style>
 </html>
