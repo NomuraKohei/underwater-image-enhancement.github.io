@@ -1,0 +1,125 @@
+---
+import Content from '../components/Content.astro';
+import DownloadContent from '../components/DownloadContent.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import HeroHeader from '../components/HeroHeader.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<style lang="scss">
+  main {
+    width: var(--view-width);
+
+    @media screen and (max-width: 840px) {
+      width: 100%;
+      padding: 0 1rem;
+    }
+  }
+
+  .abstract-text {
+    margin-bottom: 2rem;
+    text-align: justify;
+    text-justify: inter-ideograph;
+  }
+</style>
+
+<Layout
+  title="Underwater Image Color Correction using Exposure-Bracketing Imaging"
+  description="Absorption and scattering of light in an underwater scene saliently attenuate red spectrum components. They cause heavy color distortions in the captured underwater images. In this letter, we propose a method for color-correcting underwater images, utilizing a framework of gray information estimation for color constancy."
+>
+  <Header />
+  <main>
+    <HeroHeader />
+    <Content title="Abstract">
+      <p class="abstract-text">
+        Absorption and scattering of light in an underwater scene saliently attenuate red spectrum components. They
+        cause heavy color distortions in the captured underwater images. In this letter, we propose a method for
+        color-correcting underwater images, utilizing a framework of gray information estimation for color constancy.
+        The key novelty of our method is to utilize exposure-bracketing imaging: a technique to capture multiple images
+        with different exposure times for color correction. The long exposure image is useful for sufficiently acquiring
+        red spectrum information of underwater scenes. In contrast, pixel values in the green and blue channels in the
+        short-exposure image are suitable because they are unlikely to attenuate more than the red ones. By selecting
+        appropriate images (i.e., least over- and under-exposed images) for each color channel from those taken with
+        exposure bracketing imaging, we fuse an image that includes sufficient spectral information of underwater
+        scenes. The fused image allows us to extract reliable gray information of scenes; thus, effective color
+        corrections can be achieved. We perform color correction by linear regression of gray information estimated from
+        the fused image. Experiments using real underwater images demonstrate the effectiveness of our method.
+      </p>
+      <img
+        loading="lazy"
+        src="/method.webp"
+        alt="flow_our_enhancement"
+        width="760"
+        height="286"
+        class="abstract-text"
+        decoding="async"
+      />
+    </Content>
+    <Content title="Download">
+      <div class="downloads">
+        <DownloadContent
+          imgSrc="/paper.webp"
+          title="Paper"
+          links={[
+            {
+              text: 'high-res version',
+              url: '/Underwater_Image_Color_Correction_using_exposure-bracketing_imaging.pdf',
+            },
+            {
+              text: 'low-res version',
+              url: '/LOW_Underwater_Image_Color_Correction_using_exposure-bracketing_imaging.pdf',
+            },
+          ]}
+          description={[
+            'Underwater Image Color Correction using Exposure-Bracketing Imaging',
+            'Kohei Nomura, Daisuke sugimura, Takayuki Hamamoto',
+            'IEEE Signal Processing Letters (SPL), Volume: 25, Issue: 6, pp.893-897, June 2018.',
+          ]}
+        />
+        <DownloadContent
+          imgSrc="/supplementaryMaterial.webp"
+          title="Supplementary Material"
+          links={[
+            {
+              text: 'high-res version',
+              url: '/supplemental_material.pdf',
+            },
+            {
+              text: 'low-res version',
+              url: '/LOW_supplemental_material.pdf',
+            },
+          ]}
+          description={['For more results, please see the supplementary material.']}
+        />
+        <DownloadContent
+          imgSrc="/dataset.webp"
+          title="Dataset"
+          links={[
+            {
+              text: 'RAW image',
+              url: 'https://www.dropbox.com/s/rqr0nd4sb4t7p5t/PgmUnderwaterImageFiles.zip?dl=0',
+            },
+            {
+              text: 'RAW image (demosaicing+resize)',
+              url: 'https://www.dropbox.com/s/xiunv0bbl4f5c0p/BmpResizeUnderwaterImageFiles.zip?dl=0',
+            },
+          ]}
+          description={['This is the underwater image dataset that was used in our paper. (Pass: 2018)']}
+        />
+        <DownloadContent
+          imgSrc="/quote.webp"
+          title="Citation"
+          links={[
+            {
+              text: 'BibTeX',
+              url: '/UnderwaterImageColorCorrection.bib',
+            },
+          ]}
+          description={['If you use images of our publications or our dataset, please cite the paper.']}
+        />
+      </div>
+    </Content>
+  </main>
+  <Footer />
+</Layout>

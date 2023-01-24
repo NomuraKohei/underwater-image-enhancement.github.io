@@ -1,0 +1,84 @@
+---
+// Astro will bundle and optimize this CSS for you automatically
+// This also works for preprocessor files like .scss, .styl, etc.
+// import '../styles/utils.css';
+interface Props {
+  imgSrc: string;
+  title: string;
+  links: {
+    text: string;
+    url: string;
+  }[];
+  description: string[];
+}
+
+const { imgSrc, title, links, description }: Props = Astro.props;
+---
+
+<style>
+  .download-content {
+    display: flex;
+    margin-bottom: 2rem;
+  }
+
+  img {
+    margin-right: 2rem;
+    border-radius: 4px;
+    box-shadow: 0 0 4px 1px #ddd;
+  }
+
+  .title {
+    font-weight: bold;
+  }
+
+  .link {
+    padding: 4px 12px;
+    margin-right: 0.5rem;
+    color: rgb(28 89 187);
+    text-decoration: none;
+    border: 1px solid #1c59bb;
+    border-radius: 14px;
+  }
+
+  .link:hover {
+    color: white;
+    background: #1c59bb;
+  }
+
+  .information {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .description {
+    height: 54px;
+    font-size: var(--text-small);
+  }
+</style>
+
+<section class="download-content">
+  <img loading="lazy" src={imgSrc} alt="" width="96" height="128" decoding="async" />
+  <section class="information">
+    <p class="title">{title}</p>
+    <span>
+      {
+        links.map((item) => (
+          <a href={item.url} class="link" target="_blank" rel="noopener noreferrer">
+            {item.text}
+          </a>
+        ))
+      }
+    </span>
+    <p class="description">
+      {
+        description.map((item) => (
+          <span>
+            {item}
+            <br />
+          </span>
+        ))
+      }
+    </p>
+  </section>
+</section>

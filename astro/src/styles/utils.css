@@ -1,0 +1,8 @@
+:root {
+  --text-color-primary: #333;
+  --text-color-primary-invert: #eee;
+  --text-color-secondary: #666;
+  --text-large: 2.5rem;
+  --text-small: 0.75rem;
+  --view-width: 760px;
+}

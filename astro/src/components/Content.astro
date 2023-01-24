@@ -1,0 +1,31 @@
+---
+// Astro will bundle and optimize this CSS for you automatically
+// This also works for preprocessor files like .scss, .styl, etc.
+// import '../styles/utils.css';
+const { title } = Astro.props;
+---
+
+<style>
+  .container {
+    margin-bottom: 8rem;
+    text-align: left;
+  }
+
+  .contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .title {
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+    color: var(--text-color-secondary);
+    border-left: solid 0.8rem var(--text-color-secondary);
+  }
+</style>
+
+<section class="container">
+  <h2 class="title">{title}</h2>
+  <slot />
+</section>

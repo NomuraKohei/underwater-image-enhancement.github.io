@@ -1,0 +1,67 @@
+---
+// Astro will bundle and optimize this CSS for you automatically
+// This also works for preprocessor files like .scss, .styl, etc.
+---
+
+<style lang="scss">
+  .top {
+    margin-bottom: 6rem;
+    text-align: center;
+    width: 100%;
+
+    h1 {
+      display: block;
+      width: 100%;
+      margin-bottom: 1rem;
+      font-size: var(--text-large);
+      text-align: justify;
+      text-align-last: justify;
+      letter-spacing: 0.17rem;
+    }
+  }
+
+  .author {
+    font-size: 1rem;
+    text-align: left;
+
+    a {
+      margin-right: 0.5rem;
+    }
+  }
+
+  .publication {
+    text-align: left;
+    margin-bottom: 2rem;
+  }
+
+  .top-img {
+    display: flex;
+    justify-content: center;
+  }
+
+  img {
+    border-radius: 8px;
+  }
+
+  img:first-child {
+    margin-right: 0.5rem;
+  }
+</style>
+
+<section class="top">
+  <h1>
+    Underwater Image Color Correction<br />
+    using Exposure-Bracketing Imaging
+  </h1>
+  <p class="author">
+    <a href="https://scholar.google.co.jp/citations?user=d9NiNg0AAAAJ">Kohei Nomura</a>
+    <a href="https://sites.google.com/site/daisukesugimurahp/">Daisuke Sugimura</a>Takayuki Hamamoto
+  </p>
+  <p class="publication">
+    IEEE Signal Processing Letters (SPL), <span>2018 (impact factor in 2018: 2.813)</span>
+  </p>
+  <div class="top-img">
+    <img src="/original.webp" alt="Color distorted DistoDhiho's seahorse" width="376" height="282" decoding="async" />
+    <img src="/restore.webp" alt="Brilliant DistoDhiho's seahorse" width="376" height="282" decoding="async" />
+  </div>
+</section>
