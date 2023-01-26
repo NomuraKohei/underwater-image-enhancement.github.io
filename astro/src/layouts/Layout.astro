@@ -24,7 +24,7 @@ const { title, description, ...seoProps }: Props = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     <title>{title}</title>
-    <SEO {...seoProps} />
+    <SEO {...seoProps} canonical="https://nomurakohei.github.io/underwater-image-enhancement.github.io/"/>
   </head>
   <body>
     <slot />
