@@ -32,4 +32,7 @@ export default defineConfig({
     }),
     astroI18next(),
   ],
+  build: {
+    assets: 'styles',
+  },
 });
