@@ -1,7 +1,4 @@
 ---
-// Astro will bundle and optimize this CSS for you automatically
-// This also works for preprocessor files like .scss, .styl, etc.
-// import '../styles/utils.css';
 interface Props {
   imgSrc: string;
   title: string;
@@ -24,12 +21,16 @@ const { imgSrc, title, links, description }: Props = Astro.props;
   img {
     margin-right: 2rem;
     border-radius: 4px;
-    box-shadow: 0 0 4px 1px #ddd;
+    box-shadow: 0 0 4px 1px var(--shadow-color);
 
     @media screen and (max-width: 840px) {
       max-height: 128px;
       margin-right: 1rem;
     }
+
+    @media (prefers-color-scheme: dark) {
+        filter: brightness(90%);
+      }
   }
 
   .title {
@@ -49,9 +50,9 @@ const { imgSrc, title, links, description }: Props = Astro.props;
   .link {
     padding: 0 12px;
     margin-right: 0.5rem;
-    color: rgb(28 89 187);
+    color: var(--text-color-link);
     text-decoration: none;
-    border: 1px solid #1c59bb;
+    border: 1px solid var(--text-color-link);
     border-radius: 14px;
 
     @media screen and (max-width: 840px) {
@@ -61,7 +62,7 @@ const { imgSrc, title, links, description }: Props = Astro.props;
 
   .link:hover {
     color: white;
-    background: #1c59bb;
+    background: var(--text-color-link);
   }
 
   .information {

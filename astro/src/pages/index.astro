@@ -37,6 +37,12 @@ changeLanguage("en");
   }
 
   .abstract-image {
+      background: #FFF;
+      border-radius: 14px;
+
+      @media (prefers-color-scheme: dark) {
+        filter: brightness(90%);
+      }
     @media screen and (max-width: 840px) {
       padding: 0 1rem;
       width: 760px;

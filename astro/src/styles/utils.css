@@ -2,8 +2,22 @@
   --text-color-primary: #333;
   --text-color-primary-invert: #eee;
   --text-color-secondary: #666;
+  --text-color-link: #1c59bb;
+  --background-color-footer: #333;
+  --shadow-color: #ddd;
   --text-large: 2.5rem;
   --text-larger: 1.5rem;
   --text-small: 0.75rem;
   --view-width: 760px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color-primary: #bdc1c6;
+    --text-color-primary-invert: #999da2;
+    --text-color-secondary: #9aa0a6;
+    --text-color-link: #8ab4f8;
+    --background-color-footer: #1e232c;
+    --shadow-color: #999da2;
+  }
 }

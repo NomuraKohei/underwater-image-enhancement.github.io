@@ -71,6 +71,7 @@ button {
 }
 
 a {
+  color: var(--text-color-link);
   text-underline-offset: 0.2ex;
 }
 

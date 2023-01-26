@@ -2,8 +2,6 @@
 import { GoogleAnalytics } from 'astro-google-analytics';
 import { SEO, Props as AstroSeoProps } from 'astro-seo';
 import i18next from 'i18next';
-// import i18next, { t } from "i18next";
-// import { Trans, HeadHrefLangs } from "astro-i18next/components";
 
 import 'normalize.css';
 import '../styles/utils.css';
@@ -44,9 +42,11 @@ const { title, description, ...seoProps }: Props = Astro.props;
     }
     @media (prefers-color-scheme: dark) {
       html {
-        // background-color: #000;
-        // color: #fff;
-        color-scheme: light;
+        background: #202124
+      }
+      body {
+        background: linear-gradient(0deg, #202124, transparent), radial-gradient(#202124, #30374D, #4E5985);
+        background-repeat: no-repeat;
       }
     }
   </style>
