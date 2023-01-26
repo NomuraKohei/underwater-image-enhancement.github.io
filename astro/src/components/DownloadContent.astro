@@ -35,10 +35,7 @@ const { imgSrc, title, links, description }: Props = Astro.props;
 
   .title {
     font-weight: bold;
-
-    @media screen and (max-width: 840px) {
-      margin-bottom: 0.5rem;
-    }
+    margin-bottom: 0.5rem;
   }
 
   .links {
@@ -48,16 +45,13 @@ const { imgSrc, title, links, description }: Props = Astro.props;
   }
 
   .link {
-    padding: 0 12px;
+    padding: 6px 12px;
     margin-right: 0.5rem;
     color: var(--text-color-link);
     text-decoration: none;
     border: 1px solid var(--text-color-link);
-    border-radius: 14px;
-
-    @media screen and (max-width: 840px) {
-      margin-bottom: 0.25rem;
-    }
+    border-radius: 25px;
+    margin-bottom: 0.25rem;
   }
 
   .link:hover {
@@ -68,7 +62,6 @@ const { imgSrc, title, links, description }: Props = Astro.props;
   .information {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 
     @media screen and (max-width: 840px) {
       justify-content: flex-start;
