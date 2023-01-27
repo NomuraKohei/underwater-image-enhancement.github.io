@@ -17,7 +17,7 @@
   },
   "abstract": {
     "title": "Abstract",
-    "description": "Absorption and scattering of light in an underwater scene saliently attenuate red spectrum components. They cause heavy color distortions in the captured underwater images. In this letter, we propose a method for color-correcting underwater images, utilizing a framework of gray information estimation for color constancy. The key novelty of our method is to utilize exposure-bracketing imaging: a technique to capture multiple images with different exposure times for color correction. The long exposure image is useful for sufficiently acquiring red spectrum information of underwater scenes. In contrast, pixel values in the green and blue channels in the short-exposure image are suitable because they are unlikely to attenuate more than the red ones. By selecting appropriate images (i.e., least over- and under-exposed images) for each color channel from those taken with exposure bracketing imaging, we fuse an image that includes sufficient spectral information of underwater scenes. The fused image allows us to extract reliable gray information of scenes; thus, effective color corrections can be achieved. We perform color correction by linear regression of gray information estimated from the fused image. Experiments using real underwater images demonstrate the effectiveness of our method.",
+    "description": "<0><1>Absorption and scattering of light in an underwater scene saliently attenuate red spectrum components. They cause heavy color distortions in the captured underwater images.</1><2>In this letter, we propose a method for color-correcting underwater images, utilizing a framework of gray information estimation for color constancy. The key novelty of our method is to utilize exposure-bracketing imaging: a technique to capture multiple images with different exposure times for color correction.</2><3>The long exposure image is useful for sufficiently acquiring red spectrum information of underwater scenes. In contrast, pixel values in the green and blue channels in the short-exposure image are suitable because they are unlikely to attenuate more than the red ones. By selecting appropriate images (i.e., least over- and under-exposed images) for each color channel from those taken with exposure bracketing imaging, we fuse an image that includes sufficient spectral information of underwater scenes. The fused image allows us to extract reliable gray information of scenes; thus, effective color corrections can be achieved. We perform color correction by linear regression of gray information estimated from the fused image.</3><4>Experiments using real underwater images demonstrate the effectiveness of our method.</4></0>",
     "alt": "flow_our_enhancement"
   },
   "download": {
@@ -29,9 +29,7 @@
         "second": "low-res"
       },
       "description": {
-        "first": "Underwater Image Color Correction using Exposure-Bracketing Imaging",
-        "second": "Kohei Nomura, Daisuke sugimura, Takayuki Hamamoto",
-        "third": "IEEE Signal Processing Letters (SPL), Volume: 25, Issue: 6, pp.893-897, June 2018."
+        "first": "IEEE Signal Processing Letters (SPL), Volume: 25, Issue: 6, pp.893-897, June 2018."
       }
     },
     "supplementary": {

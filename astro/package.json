@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node replaceHtml.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "lint": "run-p lint:*",
@@ -18,7 +18,8 @@
     "fix": "run-p fix:*",
     "fix:eslint": "npm run lint:eslint -- --fix",
     "fix:prettier": "prettier --write src",
-    "fix:stylelint": "npm run lint:stylelint -- --fix"
+    "fix:stylelint": "npm run lint:stylelint -- --fix",
+    "trans": "npx astro-i18next generate"
   },
   "dependencies": {
     "@astrojs/sitemap": "^1.0.0",

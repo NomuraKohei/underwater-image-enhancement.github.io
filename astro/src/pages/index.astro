@@ -1,5 +1,6 @@
 ---
 import { t, changeLanguage } from "i18next";
+import { Trans } from "astro-i18next/components";
 import Content from "../components/Content.astro";
 import DownloadContent from "../components/DownloadContent.astro";
 import Footer from "../components/Footer.astro";
@@ -13,6 +14,7 @@ changeLanguage("en");
 <style lang="scss">
   main {
     width: var(--view-width);
+    letter-spacing: 0.1rem;
 
     @media screen and (max-width: 840px) {
       width: 100%;
@@ -22,6 +24,12 @@ changeLanguage("en");
   .abstract-text {
     margin-bottom: 2rem;
     text-align: justify;
+    p{
+      hyphens: auto;
+    }
+    p:not(:first-child) {
+      text-indent: 1.5rem;
+    }
 
     @media screen and (max-width: 840px) {
       padding: 0 1rem;
@@ -44,7 +52,7 @@ changeLanguage("en");
         filter: brightness(90%);
       }
     @media screen and (max-width: 840px) {
-      padding: 0 1rem;
+      margin: 0 1rem;
       width: 760px;
       min-width: 760px;
     }
@@ -62,9 +70,14 @@ changeLanguage("en");
   <main>
     <HeroHeader />
     <Content title={t('abstract.title')}>
-      <p class="abstract-text">
-        {t('abstract.description')}
-      </p>
+      <Trans i18nKey="abstract.description">
+        <section class="abstract-text">
+          <p>Absorption and scattering of light in an underwater scene saliently attenuate red spectrum components. They cause heavy color distortions in the captured underwater images. </p>
+          <p>In this letter, we propose a method for color-correcting underwater images, utilizing a framework of gray information estimation for color constancy. The key novelty of our method is to utilize exposure-bracketing imaging: a technique to capture multiple images with different exposure times for color correction.</p>
+          <p>The long exposure image is useful for sufficiently acquiring red spectrum information of underwater scenes. In contrast, pixel values in the green and blue channels in the short-exposure image are suitable because they are unlikely to attenuate more than the red ones. By selecting appropriate images (i.e., least over- and under-exposed images) for each color channel from those taken with exposure bracketing imaging, we fuse an image that includes sufficient spectral information of underwater scenes. The fused image allows us to extract reliable gray information of scenes; thus, effective color corrections can be achieved. We perform color correction by linear regression of gray information estimated from the fused image. </p>
+          <p>Experiments using real underwater images demonstrate the effectiveness of our method.</p>
+        </section>
+      </Trans>
       <div class="abstract-imageWrap">
         <img
           loading="lazy"
@@ -94,8 +107,6 @@ changeLanguage("en");
           ]}
           description={[
             t('download.paper.description.first'),
-            t('download.paper.description.second'),
-            t('download.paper.description.third'),
           ]}
         />
         <DownloadContent

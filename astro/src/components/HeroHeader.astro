@@ -11,6 +11,7 @@ import { t } from 'i18next';
     position: relative;
     width: 100%;
     height: calc(100vh - 56px);
+    padding-bottom: 56px;
     text-align: center;
 
     h1 {
@@ -21,6 +22,7 @@ import { t } from 'i18next';
       text-align: left;
 
       @media screen and (max-width: 840px) {
+        margin: 0 0 0.5rem;
         padding: 0 1rem;
         font-size: var(--text-larger);
         letter-spacing: initial;
@@ -35,6 +37,8 @@ import { t } from 'i18next';
   }
 
   .author {
+    display: inline-block;
+    margin-bottom: 0.5rem;
     font-size: 1rem;
     text-align: left;
 
@@ -48,8 +52,9 @@ import { t } from 'i18next';
   }
 
   .publication {
-    text-align: left;
     margin-bottom: 6rem;
+    font-size: var(--text-small);
+    text-align: left;
 
     @media screen and (max-width: 840px) {
       margin-bottom: 3rem;
