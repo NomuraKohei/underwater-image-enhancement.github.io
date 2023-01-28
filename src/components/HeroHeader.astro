@@ -1,0 +1,131 @@
+---
+import { Trans } from 'astro-i18next/components';
+import { t } from 'i18next';
+---
+
+<style lang="scss">
+  .top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 56px);
+    padding-bottom: 56px;
+    text-align: center;
+
+    h1 {
+      display: block;
+      width: 100%;
+      margin: 0 0 1rem;
+      font-size: var(--text-large);
+      text-align: left;
+
+      @media screen and (max-width: 840px) {
+        margin: 0 0 0.5rem;
+        padding: 0 1rem;
+        font-size: var(--text-larger);
+        letter-spacing: initial;
+        text-align: initial;
+        text-align-last: initial;
+
+        br {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .author {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    text-align: left;
+
+    @media screen and (max-width: 840px) {
+      padding: 0 1rem;
+    }
+
+    a {
+      margin-right: 0.5rem;
+    }
+  }
+
+  .publication {
+    margin-bottom: 6rem;
+    font-size: var(--text-small);
+    text-align: left;
+
+    @media screen and (max-width: 840px) {
+      margin-bottom: 3rem;
+      padding: 0 1rem;
+    }
+  }
+
+  .images {
+    @media screen and (max-width: 840px) {
+      width: 100%;
+    }
+  }
+
+  .imagesWrapper {
+    display: flex;
+    justify-content: center;
+
+    @media screen and (max-width: 840px) {
+      justify-content: flex-start;
+      padding: 0 1rem;
+      overflow-x: scroll;
+    }
+
+    img {
+      border-radius: 8px;
+
+      @media screen and (max-width: 840px) {
+        width: 80%;
+        max-width: 376px;
+        aspect-ratio: 4 / 3;
+      }
+
+      &:first-child {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  .scroll {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    height: 40px;
+    background: var(--text-color-secondary);
+
+    @media screen and (max-width: 840px) {
+      bottom: -20px;
+    }
+  }
+</style>
+
+<section class="top">
+  <h1>
+    {t('main.title.first')}<br />
+    {t('main.title.second')}
+  </h1>
+  <Trans i18nKey="main.author">
+    <p class="author">
+      <a href="https://scholar.google.co.jp/citations?user=d9NiNg0AAAAJ">Kohei Nomura</a>
+      <a href="https://sites.google.com/site/daisukesugimurahp/">Daisuke Sugimura</a><span>Takayuki Hamamoto</span>
+    </p>
+  </Trans>
+  <p class="publication">
+    {t('main.paperInfo')}
+  </p>
+  <div class="images">
+    <div class="imagesWrapper">
+      <img src="/original.webp" alt={t('main.imageAlts.first')} width="376" height="282" decoding="async" />
+      <img src="/restore.webp" alt={t('main.imageAlts.second')} width="376" height="282" decoding="async" />
+    </div>
+  </div>
+  <div class="scroll"></div>
+</section>
