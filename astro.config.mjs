@@ -1,9 +1,9 @@
 import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
-import { defineConfig } from 'astro/config';
 import compress from 'astro-compress';
 import astroI18next from 'astro-i18next';
 import purgecss from 'astro-purgecss';
+import { defineConfig } from 'astro/config';
 
 export default defineConfig({
   vite: {
@@ -11,8 +11,8 @@ export default defineConfig({
       noExternal: ['normalize.css'],
     },
   },
-  site: 'https://nomurakohei.github.io/underwater-image-enhancement.github.io',
-  base: '/',
+  site: 'https://nomurakohei.github.io',
+  base: '/underwater-image-enhancement.github.io',
   integrations: [
     sitemap({
       i18n: {
