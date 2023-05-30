@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build && node replaceHtml.mjs",
+    "build": "astro build",
+    "replacebuild": "astro build && node replaceHtml.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "lint": "run-p lint:*",
