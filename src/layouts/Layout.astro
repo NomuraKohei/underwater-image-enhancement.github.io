@@ -20,34 +20,35 @@ const { title, description, ...seoProps }: Props = Astro.props;
   <head>
     <GoogleAnalytics id="G-TC1W8426W1" />
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/underwater-image-enhancement.github.io/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     <title>{title}</title>
-    <SEO {...seoProps} canonical="https://nomurakohei.github.io/underwater-image-enhancement.github.io/"/>
+    <SEO {...seoProps} canonical="https://nomurakohei.github.io/underwater-image-enhancement.github.io/" />
   </head>
   <body>
     <slot />
-  </body><style lang="scss">
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      background: linear-gradient(0deg, #ffffff, transparent), radial-gradient(#ffffff, #eef2ff, #9caae1);
-      background-repeat: no-repeat;
-      color: var(--text-color-primary);
-      font-family: system-ui, sans-serif;
-      -webkit-font-smoothing: antialiased;
-    }
-    @media (prefers-color-scheme: dark) {
-      html {
-        background: #202124
-      }
+    <style lang="scss">
       body {
-        background: linear-gradient(0deg, #202124, transparent), radial-gradient(#202124, #30374D, #4E5985);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        background: linear-gradient(0deg, #ffffff, transparent), radial-gradient(#ffffff, #eef2ff, #9caae1);
         background-repeat: no-repeat;
+        color: var(--text-color-primary);
+        font-family: system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
       }
-    }
-  </style>
+      @media (prefers-color-scheme: dark) {
+        html {
+          background: #202124;
+        }
+        body {
+          background: linear-gradient(0deg, #202124, transparent), radial-gradient(#202124, #30374d, #4e5985);
+          background-repeat: no-repeat;
+        }
+      }
+    </style>
+  </body>
 </html>

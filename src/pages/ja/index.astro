@@ -1,14 +1,14 @@
 ---
-import { t, changeLanguage } from "i18next";
-import { Trans } from "astro-i18next/components";
-import Content from "../../components/Content.astro";
-import DownloadContent from "../../components/DownloadContent.astro";
-import Footer from "../../components/Footer.astro";
-import Header from "../../components/Header.astro";
-import HeroHeader from "../../components/HeroHeader.astro";
-import Layout from "../../layouts/Layout.astro";
+import { Trans } from 'astro-i18next/components';
+import { t, changeLanguage } from 'i18next';
+import Content from '../../components/Content.astro';
+import DownloadContent from '../../components/DownloadContent.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import HeroHeader from '../../components/HeroHeader.astro';
+import Layout from '../../layouts/Layout.astro';
 
-changeLanguage("ja");
+changeLanguage('ja');
 ---
 
 <style lang="scss">
@@ -24,7 +24,7 @@ changeLanguage("ja");
   .abstract-text {
     margin-bottom: 2rem;
     text-align: justify;
-    p{
+    p {
       hyphens: auto;
     }
     p:not(:first-child) {
@@ -45,12 +45,12 @@ changeLanguage("ja");
   }
 
   .abstract-image {
-      background: #FFF;
-      border-radius: 14px;
+    background: #fff;
+    border-radius: 14px;
 
-      @media (prefers-color-scheme: dark) {
-        filter: brightness(90%);
-      }
+    @media (prefers-color-scheme: dark) {
+      filter: brightness(90%);
+    }
     @media screen and (max-width: 840px) {
       margin: 0 1rem;
       width: 760px;
@@ -72,16 +72,31 @@ changeLanguage("ja");
     <Content title={t('abstract.title')}>
       <Trans i18nKey="abstract.description">
         <section class="abstract-text">
-          <p>Absorption and scattering of light in an underwater scene saliently attenuate red spectrum components. They cause heavy color distortions in the captured underwater images. </p>
-          <p>In this letter, we propose a method for color-correcting underwater images, utilizing a framework of gray information estimation for color constancy. The key novelty of our method is to utilize exposure-bracketing imaging: a technique to capture multiple images with different exposure times for color correction.</p>
-          <p>The long exposure image is useful for sufficiently acquiring red spectrum information of underwater scenes. In contrast, pixel values in the green and blue channels in the short-exposure image are suitable because they are unlikely to attenuate more than the red ones. By selecting appropriate images (i.e., least over- and under-exposed images) for each color channel from those taken with exposure bracketing imaging, we fuse an image that includes sufficient spectral information of underwater scenes. The fused image allows us to extract reliable gray information of scenes; thus, effective color corrections can be achieved. We perform color correction by linear regression of gray information estimated from the fused image. </p>
+          <p>
+            Absorption and scattering of light in an underwater scene saliently attenuate red spectrum components. They
+            cause heavy color distortions in the captured underwater images.
+          </p>
+          <p>
+            In this letter, we propose a method for color-correcting underwater images, utilizing a framework of gray
+            information estimation for color constancy. The key novelty of our method is to utilize exposure-bracketing
+            imaging: a technique to capture multiple images with different exposure times for color correction.
+          </p>
+          <p>
+            The long exposure image is useful for sufficiently acquiring red spectrum information of underwater scenes.
+            In contrast, pixel values in the green and blue channels in the short-exposure image are suitable because
+            they are unlikely to attenuate more than the red ones. By selecting appropriate images (i.e., least over-
+            and under-exposed images) for each color channel from those taken with exposure bracketing imaging, we fuse
+            an image that includes sufficient spectral information of underwater scenes. The fused image allows us to
+            extract reliable gray information of scenes; thus, effective color corrections can be achieved. We perform
+            color correction by linear regression of gray information estimated from the fused image.
+          </p>
           <p>Experiments using real underwater images demonstrate the effectiveness of our method.</p>
         </section>
       </Trans>
       <div class="abstract-imageWrap">
         <img
           loading="lazy"
-          src="/method.webp"
+          src="/underwater-image-enhancement.github.io/method.webp"
           alt={t('abstract.alt')}
           width="760"
           height="286"
@@ -93,39 +108,37 @@ changeLanguage("ja");
     <Content title={t('download.title')}>
       <div class="downloads">
         <DownloadContent
-          imgSrc="/paper.webp"
+          imgSrc="/underwater-image-enhancement.github.io/paper.webp"
           title={t('download.paper.title')}
           links={[
             {
               text: t('download.paper.links.first'),
-              url: '/Underwater_Image_Color_Correction_using_exposure-bracketing_imaging.pdf',
+              url: '/underwater-image-enhancement.github.io/Underwater_Image_Color_Correction_using_exposure-bracketing_imaging.pdf',
             },
             {
               text: t('download.paper.links.second'),
-              url: '/LOW_Underwater_Image_Color_Correction_using_exposure-bracketing_imaging.pdf',
+              url: '/underwater-image-enhancement.github.io/LOW_Underwater_Image_Color_Correction_using_exposure-bracketing_imaging.pdf',
             },
           ]}
-          description={[
-            t('download.paper.description.first'),
-          ]}
+          description={[t('download.paper.description.first')]}
         />
         <DownloadContent
-          imgSrc="/supplementaryMaterial.webp"
+          imgSrc="/underwater-image-enhancement.github.io/supplementaryMaterial.webp"
           title={t('download.supplementary.title')}
           links={[
             {
               text: t('download.supplementary.links.first'),
-              url: '/supplemental_material.pdf',
+              url: '/underwater-image-enhancement.github.io/supplemental_material.pdf',
             },
             {
               text: t('download.supplementary.links.second'),
-              url: '/LOW_supplemental_material.pdf',
+              url: '/underwater-image-enhancement.github.io/LOW_supplemental_material.pdf',
             },
           ]}
           description={[t('download.supplementary.description.first')]}
         />
         <DownloadContent
-          imgSrc="/dataset.webp"
+          imgSrc="/underwater-image-enhancement.github.io/dataset.webp"
           title={t('download.dataset.title')}
           links={[
             {
@@ -140,12 +153,12 @@ changeLanguage("ja");
           description={[t('download.dataset.description.first')]}
         />
         <DownloadContent
-          imgSrc="/quote.webp"
+          imgSrc="/underwater-image-enhancement.github.io/quote.webp"
           title={t('download.citation.title')}
           links={[
             {
               text: t('download.citation.links.first'),
-              url: '/UnderwaterImageColorCorrection.bib',
+              url: '/underwater-image-enhancement.github.io/UnderwaterImageColorCorrection.bib',
             },
           ]}
           description={[t('download.citation.description.first')]}
